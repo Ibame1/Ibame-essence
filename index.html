@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>IBAME Essence | Everyday Carved Wood Goods • Montréal</title>
+  <meta name="description" content="IBAME Essence is the everyday line from IBAME — hand-finished, custom-engraved wood coasters and trays made in Montréal. Personalized gifts, made to last." />
+  <meta name="theme-color" content="#F4ECE0" />
+  <link rel="canonical" href="https://essence.ibame.ca/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            essence: {
+              cream: '#F4ECE0',
+              oak: '#A9764F',
+              walnut: '#3E2A1E',
+              copper: '#B87333',
+              moss: '#5C6B4F',
+              paper: '#FBF7F0'
+            }
+          },
+          fontFamily: {
+            display: ['"Fraunces"', 'serif'],
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: #F4ECE0;
+      color: #3E2A1E;
+      -webkit-font-smoothing: antialiased;
+    }
+    .carved-rule {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #B87333 20%, #B87333 80%, transparent);
+      opacity: 0.5;
+    }
+    .carved-rule-double {
+      position: relative;
+    }
+    .carved-rule-double::before,
+    .carved-rule-double::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(62,42,30,0.18);
+    }
+    .carved-rule-double::before { top: 0; }
+    .carved-rule-double::after { top: 6px; }
+    .grain-card {
+      background-color: #FBF7F0;
+      border: 1px solid rgba(62,42,30,0.1);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 10px 30px rgba(62,42,30,0.08);
+    }
+    .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .product-img {
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .product-card:hover .product-img { transform: scale(1.04); }
+    .skip-link {
+      position: absolute; left: -9999px; top: 0; z-index: 999999;
+      background: #B87333; color: #FBF7F0; padding: 10px 18px;
+      font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    .skip-link:focus { left: 0; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-essence-copper selection:text-white">
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <nav class="sticky top-0 z-50 bg-essence-cream/90 backdrop-blur-md border-b border-essence-walnut/10 px-6 md:px-10 py-5 flex items-center justify-between">
+    <div class="flex items-baseline gap-3">
+      <span class="font-display italic text-2xl md:text-3xl text-essence-walnut">IBAME</span>
+      <span class="font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] text-essence-copper font-semibold">Essence</span>
+    </div>
+    <div class="hidden md:flex gap-8 text-[12px] uppercase tracking-[0.2em] text-essence-walnut/70 font-medium">
+      <a href="#shop" class="hover:text-essence-copper transition-colors">Shop</a>
+      <a href="#custom" class="hover:text-essence-copper transition-colors">Personalize</a>
+      <a href="#about" class="hover:text-essence-copper transition-colors">Our Craft</a>
+    </div>
+    <a href="#custom" class="bg-essence-walnut text-essence-paper px-5 md:px-7 py-2.5 md:py-3 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] hover:bg-essence-copper transition-colors">Request a Piece</a>
+  </nav>
+
+  <header class="px-6 md:px-10 pt-16 md:pt-24 pb-12 md:pb-20 max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+      <div class="reveal space-y-6 order-2 md:order-1">
+        <span class="inline-block text-[11px] uppercase tracking-[0.35em] text-essence-copper font-semibold">From the IBAME Workshop</span>
+        <h1 class="font-display text-4xl md:text-6xl leading-[1.05] text-essence-walnut">Carved by hand.<br /><em class="text-essence-oak">Carried every day.</em></h1>
+        <p class="text-essence-walnut/70 text-base md:text-lg leading-relaxed max-w-md">Coasters, trays, and keepsakes — hand-finished in solid wood, engraved with patterns and names that make an ordinary object yours.</p>
+        <div class="flex flex-wrap gap-3 md:gap-4 pt-2">
+          <a href="#shop" class="bg-essence-copper text-white px-6 md:px-8 py-3 md:py-4 rounded-full text-[12px] font-bold uppercase tracking-[0.15em] hover:brightness-110 transition-all">Browse the Collection</a>
+          <a href="#custom" class="border border-essence-walnut/30 text-essence-walnut px-6 md:px-8 py-3 md:py-4 rounded-full text-[12px] font-bold uppercase tracking-[0.15em] hover:border-essence-copper hover:text-essence-copper transition-all">Engrave Something</a>
+        </div>
+      </div>
+      <div class="order-1 md:order-2 reveal">
+        <div class="grain-card rounded-[2rem] overflow-hidden p-3">
+          <img src="./coaster-honeycomb.jpg" alt="Hand-carved honeycomb coaster set in matching wood stand" class="w-full rounded-[1.5rem] product-img" loading="eager" decoding="async" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="px-6 md:px-10 py-4">
+      <div class="max-w-6xl mx-auto carved-rule"></div>
+    </section>
+
+    <section id="shop" class="scroll-mt-24 px-6 md:px-10 py-12 md:py-20 max-w-6xl mx-auto">
+      <div class="reveal mb-10 md:mb-14 space-y-3">
+        <span class="text-[11px] uppercase tracking-[0.35em] text-essence-copper font-semibold">The Collection</span>
+        <h2 class="font-display text-3xl md:text-5xl text-essence-walnut">Small pieces, made well.</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-7">
+        <div class="product-card reveal grain-card rounded-[1.5rem] overflow-hidden">
+          <img src="./coaster-trellis.jpg" alt="Carved trellis-pattern coaster set with wood base" class="w-full product-img" loading="lazy" decoding="async" />
+          <div class="p-5 space-y-1">
+            <h3 class="font-display text-lg text-essence-walnut">Trellis Coaster Set</h3>
+            <p class="text-essence-walnut/60 text-sm">Set of 4 · Solid oak</p>
+          </div>
+        </div>
+
+        <div class="product-card reveal grain-card rounded-[1.5rem] overflow-hidden">
+          <img src="./coaster-honeycomb.jpg" alt="Carved honeycomb-pattern coaster set with wood base" class="w-full product-img" loading="lazy" decoding="async" />
+          <div class="p-5 space-y-1">
+            <h3 class="font-display text-lg text-essence-walnut">Honeycomb Coaster Set</h3>
+            <p class="text-essence-walnut/60 text-sm">Set of 4 · Acacia</p>
+          </div>
+        </div>
+
+        <div class="product-card reveal grain-card rounded-[1.5rem] overflow-hidden">
+          <img src="./tray-hers.jpg" alt="Personalized engraved wood tray reading Hers" class="w-full product-img" loading="lazy" decoding="async" />
+          <div class="p-5 space-y-1">
+            <h3 class="font-display text-lg text-essence-walnut">His &amp; Hers Trays</h3>
+            <p class="text-essence-walnut/60 text-sm">Sold as a pair · Personalized</p>
+          </div>
+        </div>
+
+        <div class="product-card reveal grain-card rounded-[1.5rem] overflow-hidden">
+          <img src="./tray-christmas.jpg" alt="Engraved wood tray with Merry Christmas script and snowflake" class="w-full product-img" loading="lazy" decoding="async" />
+          <div class="p-5 space-y-1">
+            <h3 class="font-display text-lg text-essence-walnut">Seasonal Keepsake Tray</h3>
+            <p class="text-essence-walnut/60 text-sm">Limited run · Holiday motif</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="reveal text-essence-walnut/50 text-sm mt-8 text-center">Pricing and availability shared on request while we finish setting up checkout.</p>
+    </section>
+
+    <section class="px-6 md:px-10 py-4">
+      <div class="max-w-6xl mx-auto carved-rule"></div>
+    </section>
+
+    <section id="custom" class="scroll-mt-24 px-6 md:px-10 py-12 md:py-20 max-w-4xl mx-auto">
+      <div class="reveal grain-card rounded-[2rem] p-8 md:p-14 carved-rule-double">
+        <div class="pt-6 space-y-6 text-center">
+          <span class="text-[11px] uppercase tracking-[0.35em] text-essence-copper font-semibold">Make It Yours</span>
+          <h2 class="font-display text-3xl md:text-4xl text-essence-walnut">Tell us what you'd like engraved.</h2>
+          <p class="text-essence-walnut/70 max-w-xl mx-auto">Names, dates, a favorite phrase — every piece can be personalized. Send us a note and we'll follow up with options and pricing.</p>
+
+          <form id="essence-form" class="text-left space-y-4 max-w-lg mx-auto pt-4" novalidate>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label for="e-name" class="block text-xs text-essence-copper mb-1.5 font-semibold uppercase tracking-wide">Name</label>
+                <input id="e-name" type="text" required class="w-full bg-essence-paper border border-essence-walnut/15 rounded-lg px-4 py-2.5 text-essence-walnut focus:outline-none focus:border-essence-copper" />
+              </div>
+              <div>
+                <label for="e-email" class="block text-xs text-essence-copper mb-1.5 font-semibold uppercase tracking-wide">Email</label>
+                <input id="e-email" type="email" required class="w-full bg-essence-paper border border-essence-walnut/15 rounded-lg px-4 py-2.5 text-essence-walnut focus:outline-none focus:border-essence-copper" />
+              </div>
+            </div>
+            <div>
+              <label for="e-piece" class="block text-xs text-essence-copper mb-1.5 font-semibold uppercase tracking-wide">What would you like?</label>
+              <textarea id="e-piece" rows="3" required placeholder="e.g. A trellis coaster set engraved with 'The Bola Family'" class="w-full bg-essence-paper border border-essence-walnut/15 rounded-lg px-4 py-2.5 text-essence-walnut focus:outline-none focus:border-essence-copper"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-essence-walnut text-essence-paper py-3.5 rounded-full font-bold uppercase text-sm tracking-[0.15em] hover:bg-essence-copper transition-colors">Send Request</button>
+            <p id="e-status" class="hidden text-sm text-center" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="scroll-mt-24 px-6 md:px-10 py-12 md:py-24 max-w-3xl mx-auto text-center reveal">
+      <span class="text-[11px] uppercase tracking-[0.35em] text-essence-copper font-semibold">Our Craft</span>
+      <h2 class="font-display text-3xl md:text-4xl text-essence-walnut mt-3 mb-5">The same hands behind the OGT.</h2>
+      <p class="text-essence-walnut/70 leading-relaxed">IBAME Essence comes from the same Montréal workshop as our flagship collectible pieces — scaled down to everyday objects, so the craft is something you can actually live with, not just look at.</p>
+      <a href="https://ibame.ca" class="inline-block mt-6 text-essence-copper font-semibold text-sm uppercase tracking-wide hover:underline">See the flagship collection →</a>
+    </section>
+  </main>
+
+  <footer class="border-t border-essence-walnut/10 px-6 md:px-10 py-10 md:py-14 text-center space-y-3">
+    <p class="font-display italic text-xl text-essence-walnut">IBAME Essence</p>
+    <p class="text-essence-walnut/50 text-xs uppercase tracking-[0.25em]">Montréal · BCA Inc.</p>
+    <a href="mailto:Fortunatb@yahoo.fr" class="block text-essence-walnut/60 text-xs uppercase tracking-[0.2em] hover:text-essence-copper transition-colors">Fortunatb@yahoo.fr</a>
+  </footer>
+
+  <script>
+    (() => {
+      'use strict';
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      const form = document.getElementById('essence-form');
+      const status = document.getElementById('e-status');
+      form?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('e-name').value.trim();
+        const email = document.getElementById('e-email').value.trim();
+        const piece = document.getElementById('e-piece').value.trim();
+        const subject = encodeURIComponent('Custom IBAME Essence Request');
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nRequest:\n${piece}`);
+        window.location.href = `mailto:Fortunatb@yahoo.fr?subject=${subject}&body=${body}`;
+        status.classList.remove('hidden');
+        status.textContent = 'Opening your email client to send this request...';
+        status.style.color = '#5C6B4F';
+      });
+    })();
+  </script>
+</body>
+</html>
