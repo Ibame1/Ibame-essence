@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
@@ -34,6 +34,212 @@
     };
   </script>
 
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: #050505;
+      color: #F5F5F0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .carved-rule {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #B87333 20%, #B87333 80%, transparent);
+      opacity: 0.3;
+    }
+    .grain-card {
+      background-color: #0F0E13;
+      border: 1px solid rgba(184, 115, 51, 0.15);
+    }
+    .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .product-img {
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      filter: grayscale(20%) contrast(110%);
+    }
+    .product-card:hover .product-img { transform: scale(1.04); }
+    
+    /* Logo adjustments for white background PNGs on dark theme */
+    .logo-adapt {
+      filter: invert(1) brightness(2);
+      mix-blend-mode: screen;
+    }
+
+    .skip-link {
+      position: absolute; left: -9999px; top: 0; z-index: 999999;
+      background: #B87333; color: #050505; padding: 10px 18px;
+      font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    .skip-link:focus { left: 0; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-ibame-copper selection:text-ibame-black">
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <nav class="sticky top-0 z-50 bg-ibame-black/90 backdrop-blur-md border-b border-ibame-charcoal px-6 md:px-10 py-5 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <img src="./FinalWhiteBgrd (1).png" alt="IBAME" class="h-6 md:h-8 logo-adapt" />
+      <span class="font-display italic text-lg md:text-xl text-ibame-copper tracking-wide mt-1">Essence</span>
+    </div>
+    <div class="hidden md:flex gap-8 text-[12px] uppercase tracking-[0.2em] text-ibame-grey font-medium">
+      <a href="#shop" class="hover:text-ibame-copper transition-colors">Editions</a>
+      <a href="#custom" class="hover:text-ibame-copper transition-colors">Commissions</a>
+      <a href="#about" class="hover:text-ibame-copper transition-colors">Provenance</a>
+    </div>
+    <a href="#custom" class="bg-ibame-bone text-ibame-black px-5 md:px-7 py-2.5 md:py-3 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] hover:bg-ibame-copper transition-colors">Request Dossier</a>
+  </nav>
+
+  <header class="px-6 md:px-10 pt-16 md:pt-24 pb-12 md:pb-20 max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+      <div class="reveal space-y-6 order-2 md:order-1">
+        <span class="inline-block text-[11px] uppercase tracking-[0.35em] text-ibame-copper font-semibold">Montréal × Congo</span>
+        <h1 class="font-display text-4xl md:text-6xl leading-[1.05] text-ibame-bone">Authored by hand.<br /><em class="text-ibame-grey">Lived every day.</em></h1>
+        <p class="text-ibame-grey text-base md:text-lg leading-relaxed max-w-md font-light">Collectible functional art rooted in provenance. Objects authored with strict edition discipline to protect value, designed for the contemporary lived space.</p>
+        <div class="flex flex-wrap gap-3 md:gap-4 pt-2">
+          <a href="#shop" class="bg-ibame-copper text-ibame-black px-6 md:px-8 py-3 md:py-4 rounded-full text-[12px] font-bold uppercase tracking-[0.15em] hover:brightness-110 transition-all">Reserve an Edition</a>
+          <a href="#custom" class="border border-ibame-copper text-ibame-copper px-6 md:px-8 py-3 md:py-4 rounded-full text-[12px] font-bold uppercase tracking-[0.15em] hover:bg-ibame-charcoal transition-all">Private Inquiry</a>
+        </div>
+      </div>
+      <div class="order-1 md:order-2 reveal">
+        <div class="grain-card rounded-[2rem] overflow-hidden p-3 border-ibame-charcoal">
+          <!-- Replace this image source with your Google Drive uploads once they are on GitHub -->
+          <img src="./coaster-honeycomb.jpg" alt="Hand-carved functional art piece" class="w-full rounded-[1.5rem] product-img" loading="eager" decoding="async" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="px-6 md:px-10 py-4">
+      <div class="max-w-6xl mx-auto carved-rule"></div>
+    </section>
+
+    <section id="shop" class="scroll-mt-24 px-6 md:px-10 py-12 md:py-20 max-w-6xl mx-auto">
+      <div class="reveal mb-10 md:mb-14 space-y-3">
+        <span class="text-[11px] uppercase tracking-[0.35em] text-ibame-copper font-semibold">Current Allocations</span>
+        <h2 class="font-display text-3xl md:text-5xl text-ibame-bone">Scarce objects, made well.</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-7">
+        
+        <!-- Product 1 -->
+        <div class="product-card reveal grain-card rounded-[1.5rem] overflow-hidden">
+          <img src="./coaster-trellis.jpg" alt="Carved trellis-pattern coaster set" class="w-full product-img" loading="lazy" decoding="async" />
+          <div class="p-5 space-y-1">
+            <h3 class="font-display text-lg text-ibame-bone">Trellis Edition</h3>
+            <p class="text-ibame-grey text-sm font-light">Set of 4 · Authored Design</p>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card reveal grain-card rounded-[1.5rem] overflow-hidden">
+          <img src="./coaster-honeycomb.jpg" alt="Carved honeycomb-pattern coaster set" class="w-full product-img" loading="lazy" decoding="async" />
+          <div class="p-5 space-y-1">
+            <h3 class="font-display text-lg text-ibame-bone">Honeycomb Edition</h3>
+            <p class="text-ibame-grey text-sm font-light">Set of 4 · Material Dignity</p>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card reveal grain-card rounded-[1.5rem] overflow-hidden">
+          <img src="./tray-hers.jpg" alt="Personalized engraved wood tray" class="w-full product-img" loading="lazy" decoding="async" />
+          <div class="p-5 space-y-1">
+            <h3 class="font-display text-lg text-ibame-bone">Provenance Tray</h3>
+            <p class="text-ibame-grey text-sm font-light">Sold as a pair · Custom Commission</p>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card reveal grain-card rounded-[1.5rem] overflow-hidden">
+          <img src="./tray-christmas.jpg" alt="Engraved wood tray motif" class="w-full product-img" loading="lazy" decoding="async" />
+          <div class="p-5 space-y-1">
+            <h3 class="font-display text-lg text-ibame-bone">Heritage Keepsake</h3>
+            <p class="text-ibame-grey text-sm font-light">Limited run · Curatorial Asset</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="px-6 md:px-10 py-4">
+      <div class="max-w-6xl mx-auto carved-rule"></div>
+    </section>
+
+    <section id="custom" class="scroll-mt-24 px-6 md:px-10 py-12 md:py-20 max-w-4xl mx-auto">
+      <div class="reveal grain-card rounded-[2rem] p-8 md:p-14">
+        <div class="pt-6 space-y-6 text-center">
+          <span class="text-[11px] uppercase tracking-[0.35em] text-ibame-copper font-semibold">Private Acquisition</span>
+          <h2 class="font-display text-3xl md:text-4xl text-ibame-bone">Commission a personalized edition.</h2>
+          <p class="text-ibame-grey max-w-xl mx-auto font-light">Utility and cultural continuity carry equal weight. Submit your details to request a collector dossier and initiate a custom commission.</p>
+
+          <form id="essence-form" class="text-left space-y-4 max-w-lg mx-auto pt-4" novalidate>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label for="e-name" class="block text-xs text-ibame-copper mb-1.5 font-semibold uppercase tracking-wide">Collector Name</label>
+                <input id="e-name" type="text" required class="w-full bg-ibame-black border border-ibame-charcoal rounded-lg px-4 py-2.5 text-ibame-bone focus:outline-none focus:border-ibame-copper" />
+              </div>
+              <div>
+                <label for="e-email" class="block text-xs text-ibame-copper mb-1.5 font-semibold uppercase tracking-wide">Email</label>
+                <input id="e-email" type="email" required class="w-full bg-ibame-black border border-ibame-charcoal rounded-lg px-4 py-2.5 text-ibame-bone focus:outline-none focus:border-ibame-copper" />
+              </div>
+            </div>
+            <div>
+              <label for="e-piece" class="block text-xs text-ibame-copper mb-1.5 font-semibold uppercase tracking-wide">Inquiry Details</label>
+              <textarea id="e-piece" rows="3" required placeholder="Detail your requested commission or edition..." class="w-full bg-ibame-black border border-ibame-charcoal rounded-lg px-4 py-2.5 text-ibame-bone focus:outline-none focus:border-ibame-copper"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-ibame-bone text-ibame-black py-3.5 rounded-full font-bold uppercase text-sm tracking-[0.15em] hover:bg-ibame-copper transition-colors">Submit Inquiry</button>
+            <p id="e-status" class="hidden text-sm text-center text-ibame-copper" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="scroll-mt-24 px-6 md:px-10 py-12 md:py-24 max-w-3xl mx-auto text-center reveal">
+      <span class="text-[11px] uppercase tracking-[0.35em] text-ibame-copper font-semibold">Material Dignity</span>
+      <h2 class="font-display text-3xl md:text-4xl text-ibame-bone mt-3 mb-5">Crafted with social utility.</h2>
+      <p class="text-ibame-grey leading-relaxed font-light">IBAME operates as a social-economic business focused on cultural continuity. By actively engaging in a circular economy, we transform salvaged urban wood alongside Wenge, Dalbergia, and Iroko into functional art. Felling waste is repurposed with strict edition discipline to protect value while serving a direct social purpose within Montréal.</p>
+    </section>
+  </main>
+
+  <footer class="border-t border-ibame-charcoal px-6 md:px-10 py-10 md:py-14 text-center space-y-4">
+    <div class="flex flex-col items-center justify-center">
+      <img src="./FinalWhiteBgrd (1).png" alt="IBAME" class="h-6 logo-adapt opacity-70" />
+      <p class="font-display italic text-lg text-ibame-copper mt-2">Essence</p>
+    </div>
+    <p class="text-ibame-grey text-xs uppercase tracking-[0.25em]">Montréal · BCA Inc.</p>
+    <a href="mailto:Fortunatb@yahoo.fr" class="block text-ibame-grey text-xs uppercase tracking-[0.2em] hover:text-ibame-copper transition-colors">Fortunatb@yahoo.fr</a>
+  </footer>
+
+  <script>
+    (() => {
+      'use strict';
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      const form = document.getElementById('essence-form');
+      const status = document.getElementById('e-status');
+      form?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('e-name').value.trim();
+        const email = document.getElementById('e-email').value.trim();
+        const piece = document.getElementById('e-piece').value.trim();
+        const subject = encodeURIComponent('Private Acquisition Inquiry | IBAME');
+        const body = encodeURIComponent(`Collector Name: ${name}\nEmail: ${email}\n\nInquiry Details:\n${piece}`);
+        window.location.href = `mailto:Fortunatb@yahoo.fr?subject=${subject}&body=${body}`;
+        status.classList.remove('hidden');
+        status.textContent = 'Opening your secure email client...';
+      });
+    })();
+  </script>
+</body>
+</html>
   <style>
     html { scroll-behavior: smooth; }
     body {
