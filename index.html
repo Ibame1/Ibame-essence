@@ -40,6 +40,7 @@
       background-color: #050505;
       color: #F5F5F0;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
     .carved-rule {
       height: 1px;
@@ -52,18 +53,53 @@
     }
     .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.22,1,0.36,1); }
     .reveal.active { opacity: 1; transform: translateY(0); }
-    
-    /* Image uniform treatment */
+
     .product-img {
       transition: transform 0.6s ease;
       filter: grayscale(15%) contrast(110%);
     }
     .group:hover .product-img { transform: scale(1.05); }
-    
-    /* Logo adjustments */
+
     .logo-adapt {
       filter: invert(1) brightness(2);
       mix-blend-mode: screen;
+    }
+
+    .tilt-card { transition: transform 0.15s ease-out, box-shadow 0.3s ease; will-change: transform; }
+    .tilt-card:hover { box-shadow: 0 20px 40px -12px rgba(184,115,51,0.25); }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(184,115,51,0.5); }
+      50% { box-shadow: 0 0 0 6px rgba(184,115,51,0); }
+    }
+    .badge-new { animation: pulseGlow 2.2s ease-in-out infinite; }
+
+    #cursor-glow {
+      position: absolute;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(184,115,51,0.14), transparent 70%);
+      border-radius: 9999px;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s ease;
+      opacity: 0;
+      z-index: 0;
+    }
+
+    .price-tag {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
     }
   </style>
 </head>
@@ -75,22 +111,41 @@
       <img src="./FinalWhiteBgrd (1).png" alt="IBAME" class="h-16 md:h-24 w-auto logo-adapt shrink-0" />
       <span class="font-display italic text-3xl md:text-4xl text-ibame-copper tracking-wide mt-1 md:mt-2 truncate">Essence</span>
     </div>
-    
+
     <div class="hidden md:flex gap-8 text-[12px] uppercase tracking-[0.2em] text-ibame-grey font-medium">
       <a href="#catalog" class="hover:text-ibame-copper transition-colors">Catalog</a>
+      <a href="#new" class="hover:text-ibame-copper transition-colors">New Arrivals</a>
       <a href="#custom" class="hover:text-ibame-copper transition-colors">Personalize</a>
     </div>
-    
+
     <a href="#custom" class="bg-ibame-bone text-ibame-black px-4 md:px-7 py-2 md:py-3 rounded-full text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.15em] hover:bg-ibame-copper transition-colors shrink-0 whitespace-nowrap">Request</a>
   </nav>
 
+  <!-- MARQUEE TICKER -->
+  <div class="marquee-wrap bg-ibame-charcoal border-b border-ibame-copper/10 py-2.5 overflow-hidden">
+    <div class="marquee-track text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-ibame-copper font-semibold">
+      <span class="px-6">Handmade in Montréal</span><span class="px-6">•</span>
+      <span class="px-6">Salvaged Urban Wood</span><span class="px-6">•</span>
+      <span class="px-6">Circular Economy Design</span><span class="px-6">•</span>
+      <span class="px-6">Now Shipping Across Canada</span><span class="px-6">•</span>
+      <span class="px-6">Handmade in Montréal</span><span class="px-6">•</span>
+      <span class="px-6">Salvaged Urban Wood</span><span class="px-6">•</span>
+      <span class="px-6">Circular Economy Design</span><span class="px-6">•</span>
+      <span class="px-6">Now Shipping Across Canada</span><span class="px-6">•</span>
+    </div>
+  </div>
+
   <!-- HERO SECTION -->
-  <header class="px-4 md:px-10 pt-12 md:pt-24 pb-12 md:pb-20 max-w-6xl mx-auto">
-    <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+  <header id="hero" class="relative px-4 md:px-10 pt-12 md:pt-24 pb-12 md:pb-20 max-w-6xl mx-auto overflow-hidden">
+    <div id="cursor-glow"></div>
+    <div class="relative z-10 grid md:grid-cols-2 gap-10 md:gap-16 items-center">
       <div class="reveal space-y-6 order-2 md:order-1 text-center md:text-left">
         <span class="inline-block text-[10px] md:text-[11px] uppercase tracking-[0.35em] text-ibame-copper font-semibold">Montréal Workshop</span>
         <h1 class="font-display text-4xl md:text-6xl leading-[1.05] text-ibame-bone">Crafted by hand.<br /><em class="text-ibame-grey">Used every day.</em></h1>
         <p class="text-ibame-grey text-sm md:text-lg leading-relaxed max-w-md mx-auto md:mx-0 font-light">Accessible, functional goods rooted in social utility. We transform salvaged urban wood into everyday objects designed for the contemporary lived space.</p>
+        <div class="flex gap-3 justify-center md:justify-start pt-2">
+          <a href="#new" class="bg-ibame-copper text-ibame-black px-6 py-3 rounded-full text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-ibame-bone transition-colors">Shop New Arrivals</a>
+        </div>
       </div>
       <div class="order-1 md:order-2 reveal">
         <div class="grain-card rounded-[1.5rem] overflow-hidden p-2 md:p-3 border-ibame-charcoal">
@@ -107,6 +162,75 @@
       <div class="max-w-6xl mx-auto carved-rule"></div>
     </section>
 
+    <!-- NEW ARRIVALS SECTION -->
+    <section id="new" class="scroll-mt-24 px-4 md:px-10 py-12 md:py-20 max-w-6xl mx-auto">
+      <div class="reveal mb-10 md:mb-14 space-y-3 text-center md:text-left">
+        <span class="text-[11px] uppercase tracking-[0.35em] text-ibame-copper font-semibold">Just Landed</span>
+        <h2 class="font-display text-3xl md:text-5xl text-ibame-bone">New arrivals.</h2>
+        <p class="text-ibame-grey text-sm md:text-base font-light max-w-lg mx-auto md:mx-0">Black walnut, marked with a birdseye maple inlay stripe. Two new pieces, one shared story.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 md:gap-7">
+
+        <!-- NEW PRODUCT: VALET TRAY -->
+        <div class="tilt-card group reveal grain-card rounded-2xl overflow-hidden flex flex-col relative md:col-span-2">
+          <span class="badge-new absolute top-4 left-4 z-10 bg-ibame-copper text-ibame-black text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1.5 rounded-full">New</span>
+          <div class="aspect-[16/10] w-full overflow-hidden bg-black">
+            <img src="./valet-tray-1.jpg" alt="Valet & Desk Organizer Tray" class="w-full h-full object-cover product-img" loading="lazy" />
+          </div>
+          <div class="p-5 md:p-7 flex-grow flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+            <div>
+              <h3 class="font-display text-xl md:text-2xl text-ibame-bone">Valet &amp; Desk Organizer Tray</h3>
+              <p class="text-ibame-grey text-xs md:text-sm font-light mt-1">Black walnut, birdseye maple inlay · 20"L x 13"W x 1.5"H</p>
+            </div>
+            <div class="flex items-center gap-4 shrink-0">
+              <span class="price-tag text-2xl text-ibame-copper">$295</span>
+              <button data-product="Valet &amp; Desk Organizer Tray ($295)" class="reserve-btn bg-ibame-bone text-ibame-black px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-[0.15em] hover:bg-ibame-copper transition-colors whitespace-nowrap">Reserve</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- NEW PRODUCT: COASTER SET -->
+        <div class="tilt-card group reveal grain-card rounded-2xl overflow-hidden flex flex-col relative">
+          <span class="badge-new absolute top-4 left-4 z-10 bg-ibame-copper text-ibame-black text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1.5 rounded-full">New</span>
+          <div class="aspect-square w-full overflow-hidden bg-black">
+            <img src="./coaster-set-1.jpg" alt="Coaster Set with Holder" class="w-full h-full object-cover product-img" loading="lazy" />
+          </div>
+          <div class="p-5 flex-grow flex flex-col justify-between gap-4">
+            <div>
+              <h3 class="font-display text-lg text-ibame-bone">Coaster Set with Holder</h3>
+              <p class="text-ibame-grey text-xs font-light mt-1">Set of 4 · Black walnut, maple inlay</p>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="price-tag text-xl text-ibame-copper">$69</span>
+              <button data-product="Coaster Set with Holder ($69)" class="reserve-btn bg-ibame-bone text-ibame-black px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.15em] hover:bg-ibame-copper transition-colors">Reserve</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- BUNDLE -->
+        <div class="tilt-card group reveal grain-card rounded-2xl overflow-hidden flex flex-col md:col-span-3 sm:flex-row items-center gap-6 p-6 md:p-8 border-ibame-copper/30">
+          <div class="flex -space-x-6 shrink-0">
+            <img src="./valet-tray-1.jpg" class="w-24 h-24 md:w-28 md:h-28 rounded-xl object-cover border-2 border-ibame-black product-img" alt="Tray" />
+            <img src="./coaster-set-1.jpg" class="w-24 h-24 md:w-28 md:h-28 rounded-xl object-cover border-2 border-ibame-black product-img" alt="Coasters" />
+          </div>
+          <div class="flex-grow text-center sm:text-left">
+            <h3 class="font-display text-xl md:text-2xl text-ibame-bone">The Desk Set — Tray + Coasters</h3>
+            <p class="text-ibame-grey text-xs md:text-sm font-light mt-1">Cut from the same wood story. Save $24 buying together.</p>
+          </div>
+          <div class="flex items-center gap-4 shrink-0">
+            <span class="price-tag text-2xl text-ibame-copper">$340</span>
+            <button data-product="The Desk Set — Tray + Coasters ($340 bundle)" class="reserve-btn bg-ibame-copper text-ibame-black px-6 py-3 rounded-full text-[10px] font-bold uppercase tracking-[0.15em] hover:bg-ibame-bone transition-colors whitespace-nowrap">Reserve Bundle</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="px-4 md:px-10 py-4">
+      <div class="max-w-6xl mx-auto carved-rule"></div>
+    </section>
+
     <!-- PRODUCT CATALOG SECTION -->
     <section id="catalog" class="scroll-mt-24 px-4 md:px-10 py-12 md:py-20 max-w-6xl mx-auto">
       <div class="reveal mb-10 md:mb-14 space-y-3 text-center md:text-left">
@@ -114,72 +238,89 @@
         <h2 class="font-display text-3xl md:text-5xl text-ibame-bone">Everyday objects, made well.</h2>
       </div>
 
-      <!-- Changed to 3 columns on desktop so 6 items fit perfectly -->
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-7">
-        
+
         <!-- PRODUCT 1 -->
-        <div class="group reveal grain-card rounded-2xl overflow-hidden flex flex-col">
+        <div class="tilt-card group reveal grain-card rounded-2xl overflow-hidden flex flex-col">
           <div class="aspect-square w-full overflow-hidden bg-black">
             <img src="./20240407_204836.jpg" alt="Catalog item" class="w-full h-full object-cover product-img" loading="lazy" />
           </div>
-          <div class="p-4 md:p-5 flex-grow">
-            <h3 class="font-display text-base md:text-lg text-ibame-bone">Solid Wood Set</h3>
-            <p class="text-ibame-grey text-xs md:text-sm font-light mt-1">Everyday Function</p>
+          <div class="p-4 md:p-5 flex-grow flex items-end justify-between gap-2">
+            <div>
+              <h3 class="font-display text-base md:text-lg text-ibame-bone">Solid Wood Set</h3>
+              <p class="text-ibame-grey text-xs md:text-sm font-light mt-1">Everyday Function</p>
+            </div>
+            <button data-product="Solid Wood Set (price on request)" class="reserve-btn text-ibame-copper text-[10px] font-semibold uppercase tracking-wide hover:text-ibame-bone transition-colors whitespace-nowrap">Inquire →</button>
           </div>
         </div>
 
         <!-- PRODUCT 2 -->
-        <div class="group reveal grain-card rounded-2xl overflow-hidden flex flex-col">
+        <div class="tilt-card group reveal grain-card rounded-2xl overflow-hidden flex flex-col">
           <div class="aspect-square w-full overflow-hidden bg-black">
             <img src="./20240327_111118.jpg" alt="Catalog item" class="w-full h-full object-cover product-img" loading="lazy" />
           </div>
-          <div class="p-4 md:p-5 flex-grow">
-            <h3 class="font-display text-base md:text-lg text-ibame-bone">Carved Editions</h3>
-            <p class="text-ibame-grey text-xs md:text-sm font-light mt-1">Solid Wood</p>
+          <div class="p-4 md:p-5 flex-grow flex items-end justify-between gap-2">
+            <div>
+              <h3 class="font-display text-base md:text-lg text-ibame-bone">Carved Editions</h3>
+              <p class="text-ibame-grey text-xs md:text-sm font-light mt-1">Solid Wood</p>
+            </div>
+            <button data-product="Carved Editions (price on request)" class="reserve-btn text-ibame-copper text-[10px] font-semibold uppercase tracking-wide hover:text-ibame-bone transition-colors whitespace-nowrap">Inquire →</button>
           </div>
         </div>
 
         <!-- PRODUCT 3 -->
-        <div class="group reveal grain-card rounded-2xl overflow-hidden flex flex-col">
+        <div class="tilt-card group reveal grain-card rounded-2xl overflow-hidden flex flex-col">
           <div class="aspect-square w-full overflow-hidden bg-black">
             <img src="./20240327_111145.jpg" alt="Catalog item" class="w-full h-full object-cover product-img" loading="lazy" />
           </div>
-          <div class="p-4 md:p-5 flex-grow">
-            <h3 class="font-display text-base md:text-lg text-ibame-bone">Carved Detail</h3>
-            <p class="text-ibame-grey text-xs md:text-sm font-light mt-1">Solid Wood</p>
+          <div class="p-4 md:p-5 flex-grow flex items-end justify-between gap-2">
+            <div>
+              <h3 class="font-display text-base md:text-lg text-ibame-bone">Carved Detail</h3>
+              <p class="text-ibame-grey text-xs md:text-sm font-light mt-1">Solid Wood</p>
+            </div>
+            <button data-product="Carved Detail (price on request)" class="reserve-btn text-ibame-copper text-[10px] font-semibold uppercase tracking-wide hover:text-ibame-bone transition-colors whitespace-nowrap">Inquire →</button>
           </div>
         </div>
 
         <!-- PRODUCT 4 -->
-        <div class="group reveal grain-card rounded-2xl overflow-hidden flex flex-col">
+        <div class="tilt-card group reveal grain-card rounded-2xl overflow-hidden flex flex-col">
           <div class="aspect-square w-full overflow-hidden bg-black">
             <img src="./20240327_111327.jpg" alt="Catalog item" class="w-full h-full object-cover product-img" loading="lazy" />
           </div>
-          <div class="p-4 md:p-5 flex-grow">
-            <h3 class="font-display text-base md:text-lg text-ibame-bone">Personalized Tray</h3>
-            <p class="text-ibame-grey text-xs md:text-sm font-light mt-1">Custom Engraving</p>
+          <div class="p-4 md:p-5 flex-grow flex items-end justify-between gap-2">
+            <div>
+              <h3 class="font-display text-base md:text-lg text-ibame-bone">Personalized Tray</h3>
+              <p class="text-ibame-grey text-xs md:text-sm font-light mt-1">Custom Engraving</p>
+            </div>
+            <button data-product="Personalized Tray (price on request)" class="reserve-btn text-ibame-copper text-[10px] font-semibold uppercase tracking-wide hover:text-ibame-bone transition-colors whitespace-nowrap">Inquire →</button>
           </div>
         </div>
 
         <!-- PRODUCT 5 -->
-        <div class="group reveal grain-card rounded-2xl overflow-hidden flex flex-col">
+        <div class="tilt-card group reveal grain-card rounded-2xl overflow-hidden flex flex-col">
           <div class="aspect-square w-full overflow-hidden bg-black">
             <img src="./20240327_112403.jpg" alt="Catalog item" class="w-full h-full object-cover product-img" loading="lazy" />
           </div>
-          <div class="p-4 md:p-5 flex-grow">
-            <h3 class="font-display text-base md:text-lg text-ibame-bone">Everyday Tray</h3>
-            <p class="text-ibame-grey text-xs md:text-sm font-light mt-1">Everyday Motif</p>
+          <div class="p-4 md:p-5 flex-grow flex items-end justify-between gap-2">
+            <div>
+              <h3 class="font-display text-base md:text-lg text-ibame-bone">Everyday Tray</h3>
+              <p class="text-ibame-grey text-xs md:text-sm font-light mt-1">Everyday Motif</p>
+            </div>
+            <button data-product="Everyday Tray (price on request)" class="reserve-btn text-ibame-copper text-[10px] font-semibold uppercase tracking-wide hover:text-ibame-bone transition-colors whitespace-nowrap">Inquire →</button>
           </div>
         </div>
-        
+
         <!-- PRODUCT 6 -->
-        <div class="group reveal grain-card rounded-2xl overflow-hidden flex flex-col">
+        <div class="tilt-card group reveal grain-card rounded-2xl overflow-hidden flex flex-col">
           <div class="aspect-square w-full overflow-hidden bg-black">
             <img src="./20240327_112652.jpg" alt="Catalog item" class="w-full h-full object-cover product-img" loading="lazy" />
           </div>
-          <div class="p-4 md:p-5 flex-grow">
-            <h3 class="font-display text-base md:text-lg text-ibame-bone">Pattern Tray</h3>
-            <p class="text-ibame-grey text-xs md:text-sm font-light mt-1">Everyday Motif</p>
+          <div class="p-4 md:p-5 flex-grow flex items-end justify-between gap-2">
+            <div>
+              <h3 class="font-display text-base md:text-lg text-ibame-bone">Pattern Tray</h3>
+              <p class="text-ibame-grey text-xs md:text-sm font-light mt-1">Everyday Motif</p>
+            </div>
+            <button data-product="Pattern Tray (price on request)" class="reserve-btn text-ibame-copper text-[10px] font-semibold uppercase tracking-wide hover:text-ibame-bone transition-colors whitespace-nowrap">Inquire →</button>
           </div>
         </div>
 
@@ -196,7 +337,7 @@
         <div class="pt-4 space-y-4 text-center">
           <span class="text-[11px] uppercase tracking-[0.35em] text-ibame-copper font-semibold">Make It Yours</span>
           <h2 class="font-display text-3xl md:text-4xl text-ibame-bone">Personalize your piece.</h2>
-          <p class="text-ibame-grey text-sm md:text-base max-w-xl mx-auto font-light">Names, dates, or a favorite phrase—our everyday objects can be customized for your space. Send us a note to discuss your engraving.</p>
+          <p class="text-ibame-grey text-sm md:text-base max-w-xl mx-auto font-light">Names, dates, or a favorite phrase—our everyday objects can be customized for your space. Send us a note to discuss your engraving, or reserve a piece from the collection above.</p>
 
           <form id="essence-form" class="text-left space-y-4 max-w-lg mx-auto pt-6" novalidate>
             <div class="grid sm:grid-cols-2 gap-4">
@@ -235,6 +376,7 @@
   <script>
     (() => {
       'use strict';
+
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
       }, { threshold: 0.1 });
@@ -253,6 +395,44 @@
         status.classList.remove('hidden');
         status.textContent = 'Opening your secure email client...';
       });
+
+      document.querySelectorAll('.reserve-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const product = btn.getAttribute('data-product') || '';
+          const textarea = document.getElementById('e-piece');
+          if (textarea) textarea.value = `I would like to reserve: ${product}`;
+          document.getElementById('custom')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          document.getElementById('e-name')?.focus();
+        });
+      });
+
+      const tiltCards = document.querySelectorAll('.tilt-card');
+      const isTouch = window.matchMedia('(pointer: coarse)').matches;
+      if (!isTouch) {
+        tiltCards.forEach(card => {
+          card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const rotateX = ((y - rect.height / 2) / rect.height) * -6;
+            const rotateY = ((x - rect.width / 2) / rect.width) * 6;
+            card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.01)`;
+          });
+          card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';
+          });
+        });
+
+        const hero = document.getElementById('hero');
+        const glow = document.getElementById('cursor-glow');
+        hero?.addEventListener('mousemove', (e) => {
+          const rect = hero.getBoundingClientRect();
+          glow.style.left = `${e.clientX - rect.left}px`;
+          glow.style.top = `${e.clientY - rect.top}px`;
+          glow.style.opacity = '1';
+        });
+        hero?.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+      }
     })();
   </script>
 </body>
