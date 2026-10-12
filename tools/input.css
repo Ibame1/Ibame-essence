@@ -53,13 +53,6 @@ body{background-color:#050505;color:#F5F5F0;-webkit-font-smoothing:antialiased;o
 
 .price-tag{font-family:"Playfair Display","Playfair Fallback",Georgia,serif;font-style:italic}
 
-/* Designed placeholder for products whose photo is not in the repo yet (no broken-image icons). */
-.photo-pending{position:relative;display:flex;align-items:center;justify-content:center;
-  background:radial-gradient(120% 90% at 28% 18%,rgba(184,115,51,.16),transparent 60%),linear-gradient(135deg,#1a120a,#0F0E13);
-  color:#8A8A8A;font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;text-align:center}
-.photo-pending::before{content:"";position:absolute;inset:12px;border:1px solid rgba(184,115,51,.25);border-radius:.75rem}
-.photo-pending.tile::before{inset:8px;border-radius:.5rem}
-
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .js .reveal{opacity:1;transform:none;transition:none}

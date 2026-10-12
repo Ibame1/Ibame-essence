@@ -123,9 +123,14 @@
         <!-- NEW PRODUCT: VALET TRAY -->
         <div class="tilt-card group reveal grain-card rounded-2xl overflow-hidden flex flex-col relative md:col-span-2">
           <span class="badge-new absolute top-4 left-4 z-10 bg-ibame-copper text-ibame-black text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1.5 rounded-full">New</span>
-          <!-- PHOTO PENDING: valet-tray-1.jpg was referenced here but never added to the repo. Replace this block with the photo (see tools/optimize-images.mjs). -->
-          <div class="aspect-[16/10] w-full overflow-hidden bg-black">
-            <div class="photo-pending w-full h-full" role="img" aria-label="Photo coming soon: Valet and Desk Organizer Tray"><span aria-hidden="true">Photo coming soon</span></div>
+          <!-- AI-generated concept image (not a photograph): keep the visible label until it is replaced by a real photo. -->
+          <div class="relative aspect-[1745/901] w-full overflow-hidden bg-black">
+            <picture>
+              <source type="image/avif" srcset="/img/valet-tray-480.avif 480w, /img/valet-tray-960.avif 960w, /img/valet-tray-1440.avif 1440w" sizes="(min-width: 1152px) 705px, (min-width: 768px) calc((200vw - 188px) / 3), calc(100vw - 32px)" />
+              <source type="image/webp" srcset="/img/valet-tray-480.webp 480w, /img/valet-tray-960.webp 960w, /img/valet-tray-1440.webp 1440w" sizes="(min-width: 1152px) 705px, (min-width: 768px) calc((200vw - 188px) / 3), calc(100vw - 32px)" />
+              <img src="/valet-tray-1.jpg" alt="Dark walnut valet tray with five honeycomb-engraved compartments, a round coin well and a pen slot" width="1745" height="901" class="w-full h-full object-cover product-img" loading="lazy" decoding="async" />
+            </picture>
+            <span class="absolute bottom-3 left-3 rounded-full bg-black/70 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-ibame-bone">AI concept image</span>
           </div>
           <div class="p-5 md:p-7 flex-grow flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
@@ -142,9 +147,14 @@
         <!-- NEW PRODUCT: COASTER SET -->
         <div class="tilt-card group reveal grain-card rounded-2xl overflow-hidden flex flex-col relative">
           <span class="badge-new absolute top-4 left-4 z-10 bg-ibame-copper text-ibame-black text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1.5 rounded-full">New</span>
-          <!-- PHOTO PENDING: coaster-set-1.jpg was referenced here but never added to the repo. -->
-          <div class="aspect-square w-full overflow-hidden bg-black">
-            <div class="photo-pending w-full h-full" role="img" aria-label="Photo coming soon: Coaster Set with Holder"><span aria-hidden="true">Photo coming soon</span></div>
+          <!-- AI-generated concept image (not a photograph): keep the visible label until it is replaced by a real photo. -->
+          <div class="relative aspect-square w-full overflow-hidden bg-black">
+            <picture>
+              <source type="image/avif" srcset="/img/coaster-set-360.avif 360w, /img/coaster-set-720.avif 720w, /img/coaster-set-1024.avif 1024w" sizes="(min-width: 1152px) 339px, (min-width: 768px) calc((100vw - 136px) / 3), calc(100vw - 32px)" />
+              <source type="image/webp" srcset="/img/coaster-set-360.webp 360w, /img/coaster-set-720.webp 720w, /img/coaster-set-1024.webp 1024w" sizes="(min-width: 1152px) 339px, (min-width: 768px) calc((100vw - 136px) / 3), calc(100vw - 32px)" />
+              <img src="/coaster-set-1.jpg" alt="Four square walnut coasters with a hexagonal honeycomb engraving, stacked in a curved wooden holder" width="1024" height="1024" class="w-full h-full object-cover product-img" loading="lazy" decoding="async" />
+            </picture>
+            <span class="absolute bottom-3 left-3 rounded-full bg-black/70 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-ibame-bone">AI concept image</span>
           </div>
           <div class="p-5 flex-grow flex flex-col justify-between gap-4">
             <div>
@@ -161,8 +171,14 @@
         <!-- BUNDLE -->
         <div class="tilt-card group reveal grain-card rounded-2xl overflow-hidden flex flex-col md:col-span-3 sm:flex-row items-center gap-6 p-6 md:p-8 border-ibame-copper/30">
           <div class="flex -space-x-6 shrink-0" aria-hidden="true">
-            <div class="photo-pending tile w-24 h-24 md:w-28 md:h-28 rounded-xl border-2 border-ibame-black"></div>
-            <div class="photo-pending tile w-24 h-24 md:w-28 md:h-28 rounded-xl border-2 border-ibame-black"></div>
+            <picture>
+              <source type="image/avif" srcset="/img/valet-tray-sq-192.avif 192w, /img/valet-tray-sq-360.avif 360w" sizes="(min-width: 768px) 112px, 96px" />
+              <img src="/img/valet-tray-sq-360.webp" srcset="/img/valet-tray-sq-192.webp 192w, /img/valet-tray-sq-360.webp 360w" sizes="(min-width: 768px) 112px, 96px" alt="" width="360" height="360" class="w-24 h-24 md:w-28 md:h-28 rounded-xl border-2 border-ibame-black object-cover" loading="lazy" decoding="async" />
+            </picture>
+            <picture>
+              <source type="image/avif" srcset="/img/coaster-set-192.avif 192w, /img/coaster-set-360.avif 360w" sizes="(min-width: 768px) 112px, 96px" />
+              <img src="/img/coaster-set-360.webp" srcset="/img/coaster-set-192.webp 192w, /img/coaster-set-360.webp 360w" sizes="(min-width: 768px) 112px, 96px" alt="" width="360" height="360" class="w-24 h-24 md:w-28 md:h-28 rounded-xl border-2 border-ibame-black object-cover" loading="lazy" decoding="async" />
+            </picture>
           </div>
           <div class="flex-grow text-center sm:text-left">
             <h3 class="font-display text-xl md:text-2xl text-ibame-bone">The Desk Set — Tray + Coasters</h3>
@@ -175,6 +191,7 @@
         </div>
 
       </div>
+      <p class="mt-6 text-center md:text-left text-[11px] leading-relaxed text-ibame-grey font-light">The new-arrival images above are AI-generated concept illustrations, not photographs. Finished pieces may differ in color, grain and detail.</p>
     </section>
 
     <section class="px-4 md:px-10 py-4">
