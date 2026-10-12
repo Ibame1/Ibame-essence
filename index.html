@@ -3,114 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>IBAME Essence | Everyday Functional Objects • Montréal</title>
-  <meta name="description" content="IBAME Essence offers accessible, everyday functional wood goods rooted in social utility and made in Montréal." />
+  <title>Handmade Wood Trays &amp; Coasters | IBAME Essence, Montréal</title>
+  <meta name="description" content="Handmade wood trays, coasters and desk sets made from salvaged urban wood in Montréal. Reserve a piece or personalize your own. Now shipping across Canada." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#050505" />
+  <meta name="color-scheme" content="dark" />
   <link rel="canonical" href="https://essence.ibame.ca/" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            ibame: {
-              black: '#050505',
-              charcoal: '#0F0E13',
-              copper: '#B87333',
-              bone: '#F5F5F0',
-              grey: '#8A8A8A'
-            }
-          },
-          fontFamily: {
-            display: ['"Playfair Display"', 'serif'],
-            sans: ['Inter', 'sans-serif']
-          }
-        }
-      }
-    };
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IBAME Essence" />
+  <meta property="og:locale" content="en_CA" />
+  <meta property="og:title" content="IBAME Essence — Crafted by hand. Used every day." />
+  <meta property="og:description" content="Accessible, functional goods rooted in social utility. Salvaged urban wood turned into everyday objects, handmade in Montréal." />
+  <meta property="og:url" content="https://essence.ibame.ca/" />
+  <meta property="og:image" content="https://essence.ibame.ca/img/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="IBAME Essence: handmade wood goods from salvaged urban wood, Montréal" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Self-hosted fonts (no third-party requests). Preloaded: the three faces used above the fold. -->
+  <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/playfair-display-latin-wght-italic.woff2" as="font" type="font/woff2" crossorigin />
+  <script>document.documentElement.classList.add('js')</script>
+  <!-- Compiled Tailwind + site CSS (source: tools/input.css, build: bash tools/build.sh) -->
+  <link rel="stylesheet" href="/assets/site.css" />
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"Organization","@id":"https://essence.ibame.ca/#org","name":"IBAME Essence","legalName":"BCA Inc.","url":"https://essence.ibame.ca/","logo":"https://essence.ibame.ca/FinalWhiteBgrd%20(1).png","image":"https://essence.ibame.ca/img/og-image.jpg","description":"Accessible, functional wood goods made from salvaged urban wood in Montréal.","address":{"@type":"PostalAddress","addressLocality":"Montréal","addressRegion":"QC","addressCountry":"CA"},"sameAs":["https://www.instagram.com/ibameofficial"]},
+    {"@type":"WebSite","@id":"https://essence.ibame.ca/#website","url":"https://essence.ibame.ca/","name":"IBAME Essence","inLanguage":"en-CA","publisher":{"@id":"https://essence.ibame.ca/#org"}}
+  ]}
   </script>
-
-  <style>
-    html { scroll-behavior: smooth; }
-    body {
-      background-color: #050505;
-      color: #F5F5F0;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-    .carved-rule {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #B87333 20%, #B87333 80%, transparent);
-      opacity: 0.3;
-    }
-    .grain-card {
-      background-color: #0F0E13;
-      border: 1px solid rgba(184, 115, 51, 0.15);
-    }
-    .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.22,1,0.36,1); }
-    .reveal.active { opacity: 1; transform: translateY(0); }
-
-    .product-img {
-      transition: transform 0.6s ease;
-      filter: grayscale(15%) contrast(110%);
-    }
-    .group:hover .product-img { transform: scale(1.05); }
-
-    .logo-adapt {
-      filter: invert(1) brightness(2);
-      mix-blend-mode: screen;
-    }
-
-    .tilt-card { transition: transform 0.15s ease-out, box-shadow 0.3s ease; will-change: transform; }
-    .tilt-card:hover { box-shadow: 0 20px 40px -12px rgba(184,115,51,0.25); }
-
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: marquee 28s linear infinite;
-    }
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
-
-    @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(184,115,51,0.5); }
-      50% { box-shadow: 0 0 0 6px rgba(184,115,51,0); }
-    }
-    .badge-new { animation: pulseGlow 2.2s ease-in-out infinite; }
-
-    #cursor-glow {
-      position: absolute;
-      width: 420px; height: 420px;
-      background: radial-gradient(circle, rgba(184,115,51,0.14), transparent 70%);
-      border-radius: 9999px;
-      pointer-events: none;
-      transform: translate(-50%, -50%);
-      transition: opacity 0.3s ease;
-      opacity: 0;
-      z-index: 0;
-    }
-
-    .price-tag {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-    }
-  </style>
 </head>
 <body class="font-sans antialiased selection:bg-ibame-copper selection:text-ibame-black">
 
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-ibame-bone focus:text-ibame-black focus:px-5 focus:py-3 focus:rounded-full text-xs font-semibold uppercase tracking-[0.15em]">Skip to content</a>
+
   <!-- NAVIGATION -->
-  <nav class="sticky top-0 z-50 bg-ibame-black/95 backdrop-blur-md border-b border-ibame-charcoal px-4 md:px-10 py-4 flex items-center justify-between">
-    <div class="flex items-center gap-3 md:gap-4 shrink-0 overflow-hidden">
-      <img src="./FinalWhiteBgrd (1).png" alt="IBAME" class="h-16 md:h-24 w-auto logo-adapt shrink-0" />
+  <nav aria-label="Primary" class="sticky top-0 z-50 bg-ibame-black/95 border-b border-ibame-charcoal px-4 md:px-10 py-4 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-3 md:gap-4 shrink-0 overflow-hidden">
+      <img src="/img/ibame-wordmark-white.webp" alt="IBAME" width="420" height="117" class="h-7 md:h-9 w-auto shrink-0" />
       <span class="font-display italic text-3xl md:text-4xl text-ibame-copper tracking-wide mt-1 md:mt-2 truncate">Essence</span>
-    </div>
+    </a>
 
     <div class="hidden md:flex gap-8 text-[12px] uppercase tracking-[0.2em] text-ibame-grey font-medium">
       <a href="#catalog" class="hover:text-ibame-copper transition-colors">Catalog</a>
@@ -121,43 +60,52 @@
     <a href="#custom" class="bg-ibame-bone text-ibame-black px-4 md:px-7 py-2 md:py-3 rounded-full text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.15em] hover:bg-ibame-copper transition-colors shrink-0 whitespace-nowrap">Request</a>
   </nav>
 
-  <!-- MARQUEE TICKER -->
+  <!-- MARQUEE TICKER (second copy is decorative, hidden from screen readers) -->
   <div class="marquee-wrap bg-ibame-charcoal border-b border-ibame-copper/10 py-2.5 overflow-hidden">
     <div class="marquee-track text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-ibame-copper font-semibold">
-      <span class="px-6">Handmade in Montréal</span><span class="px-6">•</span>
-      <span class="px-6">Salvaged Urban Wood</span><span class="px-6">•</span>
-      <span class="px-6">Circular Economy Design</span><span class="px-6">•</span>
-      <span class="px-6">Now Shipping Across Canada</span><span class="px-6">•</span>
-      <span class="px-6">Handmade in Montréal</span><span class="px-6">•</span>
-      <span class="px-6">Salvaged Urban Wood</span><span class="px-6">•</span>
-      <span class="px-6">Circular Economy Design</span><span class="px-6">•</span>
-      <span class="px-6">Now Shipping Across Canada</span><span class="px-6">•</span>
+      <div class="flex">
+        <span class="px-6">Handmade in Montréal</span><span class="px-6" aria-hidden="true">•</span>
+        <span class="px-6">Salvaged Urban Wood</span><span class="px-6" aria-hidden="true">•</span>
+        <span class="px-6">Circular Economy Design</span><span class="px-6" aria-hidden="true">•</span>
+        <span class="px-6">Now Shipping Across Canada</span><span class="px-6" aria-hidden="true">•</span>
+      </div>
+      <div class="flex" aria-hidden="true">
+        <span class="px-6">Handmade in Montréal</span><span class="px-6">•</span>
+        <span class="px-6">Salvaged Urban Wood</span><span class="px-6">•</span>
+        <span class="px-6">Circular Economy Design</span><span class="px-6">•</span>
+        <span class="px-6">Now Shipping Across Canada</span><span class="px-6">•</span>
+      </div>
     </div>
   </div>
 
-  <!-- HERO SECTION -->
-  <header id="hero" class="relative px-4 md:px-10 pt-12 md:pt-24 pb-12 md:pb-20 max-w-6xl mx-auto overflow-hidden">
-    <div id="cursor-glow"></div>
-    <div class="relative z-10 grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-      <div class="reveal space-y-6 order-2 md:order-1 text-center md:text-left">
-        <span class="inline-block text-[10px] md:text-[11px] uppercase tracking-[0.35em] text-ibame-copper font-semibold">Montréal Workshop</span>
-        <h1 class="font-display text-4xl md:text-6xl leading-[1.05] text-ibame-bone">Crafted by hand.<br /><em class="text-ibame-grey">Used every day.</em></h1>
-        <p class="text-ibame-grey text-sm md:text-lg leading-relaxed max-w-md mx-auto md:mx-0 font-light">Accessible, functional goods rooted in social utility. We transform salvaged urban wood into everyday objects designed for the contemporary lived space.</p>
-        <div class="flex gap-3 justify-center md:justify-start pt-2">
-          <a href="#new" class="bg-ibame-copper text-ibame-black px-6 py-3 rounded-full text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-ibame-bone transition-colors">Shop New Arrivals</a>
+  <main id="main" tabindex="-1" class="focus:outline-none">
+
+    <!-- HERO SECTION -->
+    <section id="hero" aria-labelledby="hero-title" class="relative px-4 md:px-10 pt-12 md:pt-24 pb-12 md:pb-20 max-w-6xl mx-auto overflow-hidden">
+      <div id="cursor-glow" aria-hidden="true"></div>
+      <div class="relative z-10 grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+        <div class="hero-rise space-y-6 order-2 md:order-1 text-center md:text-left">
+          <span class="inline-block text-[10px] md:text-[11px] uppercase tracking-[0.35em] text-ibame-copper font-semibold">Montréal Workshop</span>
+          <h1 id="hero-title" class="font-display text-4xl md:text-6xl leading-[1.05] text-ibame-bone">Crafted by hand.<br /><em class="text-ibame-grey">Used every day.</em></h1>
+          <p class="text-ibame-grey text-sm md:text-lg leading-relaxed max-w-md mx-auto md:mx-0 font-light">Accessible, functional goods rooted in social utility. We transform salvaged urban wood into everyday objects designed for the contemporary lived space.</p>
+          <div class="flex gap-3 justify-center md:justify-start pt-2">
+            <a href="#new" class="bg-ibame-copper text-ibame-black px-6 py-3 rounded-full text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-ibame-bone transition-colors">Shop New Arrivals</a>
+          </div>
         </div>
-      </div>
-      <div class="order-1 md:order-2 reveal">
-        <div class="grain-card rounded-[1.5rem] overflow-hidden p-2 md:p-3 border-ibame-charcoal">
-          <div class="aspect-square w-full overflow-hidden rounded-xl">
-             <img src="./20240407_204836.jpg" alt="Featured Object" class="w-full h-full object-cover product-img" loading="eager" decoding="async" />
+        <div class="order-1 md:order-2 hero-rise">
+          <div class="grain-card rounded-[1.5rem] overflow-hidden p-2 md:p-3 border-ibame-charcoal">
+            <div class="aspect-square w-full overflow-hidden rounded-xl">
+              <picture>
+                <source type="image/avif" srcset="/img/africa-clock-360.avif 360w, /img/africa-clock-720.avif 720w, /img/africa-clock-1080.avif 1080w" sizes="(min-width: 1152px) 480px, (min-width: 768px) calc(50vw - 96px), calc(100vw - 48px)" />
+                <source type="image/webp" srcset="/img/africa-clock-360.webp 360w, /img/africa-clock-720.webp 720w, /img/africa-clock-1080.webp 1080w" sizes="(min-width: 1152px) 480px, (min-width: 768px) calc(50vw - 96px), calc(100vw - 48px)" />
+                <img src="/20240407_204836.jpg" alt="Wall clock cut from dark wood in the shape of Africa, with country borders marked and small inlay accents" width="1080" height="1080" class="w-full h-full object-cover product-img" fetchpriority="high" decoding="async" />
+              </picture>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </header>
+    </section>
 
-  <main>
     <section class="px-4 md:px-10 py-4">
       <div class="max-w-6xl mx-auto carved-rule"></div>
     </section>
@@ -175,8 +123,9 @@
         <!-- NEW PRODUCT: VALET TRAY -->
         <div class="tilt-card group reveal grain-card rounded-2xl overflow-hidden flex flex-col relative md:col-span-2">
           <span class="badge-new absolute top-4 left-4 z-10 bg-ibame-copper text-ibame-black text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1.5 rounded-full">New</span>
+          <!-- PHOTO PENDING: valet-tray-1.jpg was referenced here but never added to the repo. Replace this block with the photo (see tools/optimize-images.mjs). -->
           <div class="aspect-[16/10] w-full overflow-hidden bg-black">
-            <img src="./valet-tray-1.jpg" alt="Valet & Desk Organizer Tray" class="w-full h-full object-cover product-img" loading="lazy" />
+            <div class="photo-pending w-full h-full" role="img" aria-label="Photo coming soon: Valet and Desk Organizer Tray"><span aria-hidden="true">Photo coming soon</span></div>
           </div>
           <div class="p-5 md:p-7 flex-grow flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
@@ -185,7 +134,7 @@
             </div>
             <div class="flex items-center gap-4 shrink-0">
               <span class="price-tag text-2xl text-ibame-copper">$295</span>
-              <button data-product="Valet &amp; Desk Organizer Tray ($295)" class="reserve-btn bg-ibame-bone text-ibame-black px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-[0.15em] hover:bg-ibame-copper transition-colors whitespace-nowrap">Reserve</button>
+              <button data-product="Valet &amp; Desk Organizer Tray ($295)" aria-label="Reserve Valet and Desk Organizer Tray" class="reserve-btn bg-ibame-bone text-ibame-black px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-[0.15em] hover:bg-ibame-copper transition-colors whitespace-nowrap">Reserve</button>
             </div>
           </div>
         </div>
@@ -193,8 +142,9 @@
         <!-- NEW PRODUCT: COASTER SET -->
         <div class="tilt-card group reveal grain-card rounded-2xl overflow-hidden flex flex-col relative">
           <span class="badge-new absolute top-4 left-4 z-10 bg-ibame-copper text-ibame-black text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1.5 rounded-full">New</span>
+          <!-- PHOTO PENDING: coaster-set-1.jpg was referenced here but never added to the repo. -->
           <div class="aspect-square w-full overflow-hidden bg-black">
-            <img src="./coaster-set-1.jpg" alt="Coaster Set with Holder" class="w-full h-full object-cover product-img" loading="lazy" />
+            <div class="photo-pending w-full h-full" role="img" aria-label="Photo coming soon: Coaster Set with Holder"><span aria-hidden="true">Photo coming soon</span></div>
           </div>
           <div class="p-5 flex-grow flex flex-col justify-between gap-4">
             <div>
@@ -203,16 +153,16 @@
             </div>
             <div class="flex items-center justify-between">
               <span class="price-tag text-xl text-ibame-copper">$69</span>
-              <button data-product="Coaster Set with Holder ($69)" class="reserve-btn bg-ibame-bone text-ibame-black px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.15em] hover:bg-ibame-copper transition-colors">Reserve</button>
+              <button data-product="Coaster Set with Holder ($69)" aria-label="Reserve Coaster Set with Holder" class="reserve-btn bg-ibame-bone text-ibame-black px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.15em] hover:bg-ibame-copper transition-colors">Reserve</button>
             </div>
           </div>
         </div>
 
         <!-- BUNDLE -->
         <div class="tilt-card group reveal grain-card rounded-2xl overflow-hidden flex flex-col md:col-span-3 sm:flex-row items-center gap-6 p-6 md:p-8 border-ibame-copper/30">
-          <div class="flex -space-x-6 shrink-0">
-            <img src="./valet-tray-1.jpg" class="w-24 h-24 md:w-28 md:h-28 rounded-xl object-cover border-2 border-ibame-black product-img" alt="Tray" />
-            <img src="./coaster-set-1.jpg" class="w-24 h-24 md:w-28 md:h-28 rounded-xl object-cover border-2 border-ibame-black product-img" alt="Coasters" />
+          <div class="flex -space-x-6 shrink-0" aria-hidden="true">
+            <div class="photo-pending tile w-24 h-24 md:w-28 md:h-28 rounded-xl border-2 border-ibame-black"></div>
+            <div class="photo-pending tile w-24 h-24 md:w-28 md:h-28 rounded-xl border-2 border-ibame-black"></div>
           </div>
           <div class="flex-grow text-center sm:text-left">
             <h3 class="font-display text-xl md:text-2xl text-ibame-bone">The Desk Set — Tray + Coasters</h3>
@@ -220,7 +170,7 @@
           </div>
           <div class="flex items-center gap-4 shrink-0">
             <span class="price-tag text-2xl text-ibame-copper">$340</span>
-            <button data-product="The Desk Set — Tray + Coasters ($340 bundle)" class="reserve-btn bg-ibame-copper text-ibame-black px-6 py-3 rounded-full text-[10px] font-bold uppercase tracking-[0.15em] hover:bg-ibame-bone transition-colors whitespace-nowrap">Reserve Bundle</button>
+            <button data-product="The Desk Set — Tray + Coasters ($340 bundle)" aria-label="Reserve The Desk Set bundle, tray and coasters" class="reserve-btn bg-ibame-copper text-ibame-black px-6 py-3 rounded-full text-[10px] font-bold uppercase tracking-[0.15em] hover:bg-ibame-bone transition-colors whitespace-nowrap">Reserve Bundle</button>
           </div>
         </div>
 
@@ -243,84 +193,108 @@
         <!-- PRODUCT 1 -->
         <div class="tilt-card group reveal grain-card rounded-2xl overflow-hidden flex flex-col">
           <div class="aspect-square w-full overflow-hidden bg-black">
-            <img src="./20240407_204836.jpg" alt="Catalog item" class="w-full h-full object-cover product-img" loading="lazy" />
+            <picture>
+              <source type="image/avif" srcset="/img/africa-clock-360.avif 360w, /img/africa-clock-720.avif 720w" sizes="(min-width: 1152px) 339px, (min-width: 768px) calc((100vw - 136px) / 3), calc(50vw - 24px)" />
+              <source type="image/webp" srcset="/img/africa-clock-360.webp 360w, /img/africa-clock-720.webp 720w" sizes="(min-width: 1152px) 339px, (min-width: 768px) calc((100vw - 136px) / 3), calc(50vw - 24px)" />
+              <img src="/20240407_204836.jpg" alt="Dark wooden wall clock cut in the shape of Africa" width="720" height="720" class="w-full h-full object-cover product-img" loading="lazy" decoding="async" />
+            </picture>
           </div>
-          <div class="p-4 md:p-5 flex-grow flex items-end justify-between gap-2">
+          <div class="p-4 md:p-5 flex-grow flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2">
             <div>
               <h3 class="font-display text-base md:text-lg text-ibame-bone">Solid Wood Set</h3>
               <p class="text-ibame-grey text-xs md:text-sm font-light mt-1">Everyday Function</p>
             </div>
-            <button data-product="Solid Wood Set (price on request)" class="reserve-btn text-ibame-copper text-[10px] font-semibold uppercase tracking-wide hover:text-ibame-bone transition-colors whitespace-nowrap">Inquire →</button>
+            <button data-product="Solid Wood Set (price on request)" aria-label="Inquire about Solid Wood Set" class="reserve-btn text-ibame-copper text-[10px] font-semibold uppercase tracking-wide hover:text-ibame-bone transition-colors whitespace-nowrap self-start sm:self-auto mt-auto sm:mt-0 py-2.5 -my-2.5 px-2 -mx-2">Inquire →</button>
           </div>
         </div>
 
         <!-- PRODUCT 2 -->
         <div class="tilt-card group reveal grain-card rounded-2xl overflow-hidden flex flex-col">
           <div class="aspect-square w-full overflow-hidden bg-black">
-            <img src="./20240327_111118.jpg" alt="Catalog item" class="w-full h-full object-cover product-img" loading="lazy" />
+            <picture>
+              <source type="image/avif" srcset="/img/name-plaque-1-360.avif 360w, /img/name-plaque-1-720.avif 720w" sizes="(min-width: 1152px) 339px, (min-width: 768px) calc((100vw - 136px) / 3), calc(50vw - 24px)" />
+              <source type="image/webp" srcset="/img/name-plaque-1-360.webp 360w, /img/name-plaque-1-720.webp 720w" sizes="(min-width: 1152px) 339px, (min-width: 768px) calc((100vw - 136px) / 3), calc(50vw - 24px)" />
+              <img src="/20240327_111118.jpg" alt="Solid wood name plaque carved in script lettering, standing on a wooden base" width="720" height="720" class="w-full h-full object-cover product-img" loading="lazy" decoding="async" />
+            </picture>
           </div>
-          <div class="p-4 md:p-5 flex-grow flex items-end justify-between gap-2">
+          <div class="p-4 md:p-5 flex-grow flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2">
             <div>
               <h3 class="font-display text-base md:text-lg text-ibame-bone">Carved Editions</h3>
               <p class="text-ibame-grey text-xs md:text-sm font-light mt-1">Solid Wood</p>
             </div>
-            <button data-product="Carved Editions (price on request)" class="reserve-btn text-ibame-copper text-[10px] font-semibold uppercase tracking-wide hover:text-ibame-bone transition-colors whitespace-nowrap">Inquire →</button>
+            <button data-product="Carved Editions (price on request)" aria-label="Inquire about Carved Editions" class="reserve-btn text-ibame-copper text-[10px] font-semibold uppercase tracking-wide hover:text-ibame-bone transition-colors whitespace-nowrap self-start sm:self-auto mt-auto sm:mt-0 py-2.5 -my-2.5 px-2 -mx-2">Inquire →</button>
           </div>
         </div>
 
         <!-- PRODUCT 3 -->
         <div class="tilt-card group reveal grain-card rounded-2xl overflow-hidden flex flex-col">
           <div class="aspect-square w-full overflow-hidden bg-black">
-            <img src="./20240327_111145.jpg" alt="Catalog item" class="w-full h-full object-cover product-img" loading="lazy" />
+            <picture>
+              <source type="image/avif" srcset="/img/name-plaque-2-360.avif 360w, /img/name-plaque-2-720.avif 720w" sizes="(min-width: 1152px) 339px, (min-width: 768px) calc((100vw - 136px) / 3), calc(50vw - 24px)" />
+              <source type="image/webp" srcset="/img/name-plaque-2-360.webp 360w, /img/name-plaque-2-720.webp 720w" sizes="(min-width: 1152px) 339px, (min-width: 768px) calc((100vw - 136px) / 3), calc(50vw - 24px)" />
+              <img src="/20240327_111145.jpg" alt="Carved script name plaque beside its separate wooden base" width="720" height="720" class="w-full h-full object-cover product-img" loading="lazy" decoding="async" />
+            </picture>
           </div>
-          <div class="p-4 md:p-5 flex-grow flex items-end justify-between gap-2">
+          <div class="p-4 md:p-5 flex-grow flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2">
             <div>
               <h3 class="font-display text-base md:text-lg text-ibame-bone">Carved Detail</h3>
               <p class="text-ibame-grey text-xs md:text-sm font-light mt-1">Solid Wood</p>
             </div>
-            <button data-product="Carved Detail (price on request)" class="reserve-btn text-ibame-copper text-[10px] font-semibold uppercase tracking-wide hover:text-ibame-bone transition-colors whitespace-nowrap">Inquire →</button>
+            <button data-product="Carved Detail (price on request)" aria-label="Inquire about Carved Detail" class="reserve-btn text-ibame-copper text-[10px] font-semibold uppercase tracking-wide hover:text-ibame-bone transition-colors whitespace-nowrap self-start sm:self-auto mt-auto sm:mt-0 py-2.5 -my-2.5 px-2 -mx-2">Inquire →</button>
           </div>
         </div>
 
         <!-- PRODUCT 4 -->
         <div class="tilt-card group reveal grain-card rounded-2xl overflow-hidden flex flex-col">
           <div class="aspect-square w-full overflow-hidden bg-black">
-            <img src="./20240327_111327.jpg" alt="Catalog item" class="w-full h-full object-cover product-img" loading="lazy" />
+            <picture>
+              <source type="image/avif" srcset="/img/love-coasters-360.avif 360w, /img/love-coasters-720.avif 720w" sizes="(min-width: 1152px) 339px, (min-width: 768px) calc((100vw - 136px) / 3), calc(50vw - 24px)" />
+              <source type="image/webp" srcset="/img/love-coasters-360.webp 360w, /img/love-coasters-720.webp 720w" sizes="(min-width: 1152px) 339px, (min-width: 768px) calc((100vw - 136px) / 3), calc(50vw - 24px)" />
+              <img src="/20240327_111327.jpg" alt="Four octagonal wood coasters carved with the letters L, O, V and E" width="720" height="720" class="w-full h-full object-cover product-img" loading="lazy" decoding="async" />
+            </picture>
           </div>
-          <div class="p-4 md:p-5 flex-grow flex items-end justify-between gap-2">
+          <div class="p-4 md:p-5 flex-grow flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2">
             <div>
               <h3 class="font-display text-base md:text-lg text-ibame-bone">Personalized Tray</h3>
               <p class="text-ibame-grey text-xs md:text-sm font-light mt-1">Custom Engraving</p>
             </div>
-            <button data-product="Personalized Tray (price on request)" class="reserve-btn text-ibame-copper text-[10px] font-semibold uppercase tracking-wide hover:text-ibame-bone transition-colors whitespace-nowrap">Inquire →</button>
+            <button data-product="Personalized Tray (price on request)" aria-label="Inquire about Personalized Tray" class="reserve-btn text-ibame-copper text-[10px] font-semibold uppercase tracking-wide hover:text-ibame-bone transition-colors whitespace-nowrap self-start sm:self-auto mt-auto sm:mt-0 py-2.5 -my-2.5 px-2 -mx-2">Inquire →</button>
           </div>
         </div>
 
         <!-- PRODUCT 5 -->
         <div class="tilt-card group reveal grain-card rounded-2xl overflow-hidden flex flex-col">
           <div class="aspect-square w-full overflow-hidden bg-black">
-            <img src="./20240327_112403.jpg" alt="Catalog item" class="w-full h-full object-cover product-img" loading="lazy" />
+            <picture>
+              <source type="image/avif" srcset="/img/his-tray-360.avif 360w, /img/his-tray-720.avif 720w" sizes="(min-width: 1152px) 339px, (min-width: 768px) calc((100vw - 136px) / 3), calc(50vw - 24px)" />
+              <source type="image/webp" srcset="/img/his-tray-360.webp 360w, /img/his-tray-720.webp 720w" sizes="(min-width: 1152px) 339px, (min-width: 768px) calc((100vw - 136px) / 3), calc(50vw - 24px)" />
+              <img src="/20240327_112403.jpg" alt="Rectangular wood tray carved with the word His" width="720" height="720" class="w-full h-full object-cover product-img" loading="lazy" decoding="async" />
+            </picture>
           </div>
-          <div class="p-4 md:p-5 flex-grow flex items-end justify-between gap-2">
+          <div class="p-4 md:p-5 flex-grow flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2">
             <div>
               <h3 class="font-display text-base md:text-lg text-ibame-bone">Everyday Tray</h3>
               <p class="text-ibame-grey text-xs md:text-sm font-light mt-1">Everyday Motif</p>
             </div>
-            <button data-product="Everyday Tray (price on request)" class="reserve-btn text-ibame-copper text-[10px] font-semibold uppercase tracking-wide hover:text-ibame-bone transition-colors whitespace-nowrap">Inquire →</button>
+            <button data-product="Everyday Tray (price on request)" aria-label="Inquire about Everyday Tray" class="reserve-btn text-ibame-copper text-[10px] font-semibold uppercase tracking-wide hover:text-ibame-bone transition-colors whitespace-nowrap self-start sm:self-auto mt-auto sm:mt-0 py-2.5 -my-2.5 px-2 -mx-2">Inquire →</button>
           </div>
         </div>
 
         <!-- PRODUCT 6 -->
         <div class="tilt-card group reveal grain-card rounded-2xl overflow-hidden flex flex-col">
           <div class="aspect-square w-full overflow-hidden bg-black">
-            <img src="./20240327_112652.jpg" alt="Catalog item" class="w-full h-full object-cover product-img" loading="lazy" />
+            <picture>
+              <source type="image/avif" srcset="/img/slot-trays-360.avif 360w, /img/slot-trays-720.avif 720w" sizes="(min-width: 1152px) 339px, (min-width: 768px) calc((100vw - 136px) / 3), calc(50vw - 24px)" />
+              <source type="image/webp" srcset="/img/slot-trays-360.webp 360w, /img/slot-trays-720.webp 720w" sizes="(min-width: 1152px) 339px, (min-width: 768px) calc((100vw - 136px) / 3), calc(50vw - 24px)" />
+              <img src="/20240327_112652.jpg" alt="Two wooden trays with carved vertical slots and a dark diagonal grain stripe" width="720" height="928" class="w-full h-full object-cover product-img" loading="lazy" decoding="async" />
+            </picture>
           </div>
-          <div class="p-4 md:p-5 flex-grow flex items-end justify-between gap-2">
+          <div class="p-4 md:p-5 flex-grow flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2">
             <div>
               <h3 class="font-display text-base md:text-lg text-ibame-bone">Pattern Tray</h3>
               <p class="text-ibame-grey text-xs md:text-sm font-light mt-1">Everyday Motif</p>
             </div>
-            <button data-product="Pattern Tray (price on request)" class="reserve-btn text-ibame-copper text-[10px] font-semibold uppercase tracking-wide hover:text-ibame-bone transition-colors whitespace-nowrap">Inquire →</button>
+            <button data-product="Pattern Tray (price on request)" aria-label="Inquire about Pattern Tray" class="reserve-btn text-ibame-copper text-[10px] font-semibold uppercase tracking-wide hover:text-ibame-bone transition-colors whitespace-nowrap self-start sm:self-auto mt-auto sm:mt-0 py-2.5 -my-2.5 px-2 -mx-2">Inquire →</button>
           </div>
         </div>
 
@@ -343,19 +317,23 @@
             <div class="grid sm:grid-cols-2 gap-4">
               <div>
                 <label for="e-name" class="block text-xs text-ibame-copper mb-1.5 font-semibold uppercase tracking-wide">Name</label>
-                <input id="e-name" type="text" required class="w-full bg-ibame-black border border-ibame-charcoal rounded-lg px-4 py-2.5 text-ibame-bone focus:outline-none focus:border-ibame-copper" />
+                <input id="e-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name-err" class="w-full bg-ibame-black border border-ibame-copper/70 rounded-lg px-4 py-2.5 text-ibame-bone focus:outline-none focus:border-ibame-copper focus:ring-1 focus:ring-ibame-copper aria-[invalid=true]:border-[#f0a37a]" />
+                <p id="e-name-err" class="hidden mt-1.5 text-xs text-[#f0a37a]" role="alert"></p>
               </div>
               <div>
                 <label for="e-email" class="block text-xs text-ibame-copper mb-1.5 font-semibold uppercase tracking-wide">Email</label>
-                <input id="e-email" type="email" required class="w-full bg-ibame-black border border-ibame-charcoal rounded-lg px-4 py-2.5 text-ibame-bone focus:outline-none focus:border-ibame-copper" />
+                <input id="e-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="e-email-err" class="w-full bg-ibame-black border border-ibame-copper/70 rounded-lg px-4 py-2.5 text-ibame-bone focus:outline-none focus:border-ibame-copper focus:ring-1 focus:ring-ibame-copper aria-[invalid=true]:border-[#f0a37a]" />
+                <p id="e-email-err" class="hidden mt-1.5 text-xs text-[#f0a37a]" role="alert"></p>
               </div>
             </div>
             <div>
               <label for="e-piece" class="block text-xs text-ibame-copper mb-1.5 font-semibold uppercase tracking-wide">What would you like?</label>
-              <textarea id="e-piece" rows="3" required placeholder="Detail your requested item and engraving ideas..." class="w-full bg-ibame-black border border-ibame-charcoal rounded-lg px-4 py-2.5 text-ibame-bone focus:outline-none focus:border-ibame-copper"></textarea>
+              <textarea id="e-piece" name="request" rows="3" required aria-describedby="e-piece-err" placeholder="Detail your requested item and engraving ideas..." class="w-full bg-ibame-black border border-ibame-copper/70 rounded-lg px-4 py-2.5 text-ibame-bone focus:outline-none focus:border-ibame-copper focus:ring-1 focus:ring-ibame-copper aria-[invalid=true]:border-[#f0a37a]"></textarea>
+              <p id="e-piece-err" class="hidden mt-1.5 text-xs text-[#f0a37a]" role="alert"></p>
             </div>
             <button type="submit" class="w-full bg-ibame-bone text-ibame-black py-3.5 rounded-full font-bold uppercase text-sm tracking-[0.15em] hover:bg-ibame-copper transition-colors">Send Request</button>
             <p id="e-status" class="hidden text-sm text-center text-ibame-copper" role="status" aria-live="polite"></p>
+            <button type="button" id="e-copy" class="hidden mx-auto block text-xs uppercase tracking-[0.15em] text-ibame-bone underline underline-offset-4 hover:text-ibame-copper transition-colors py-2">Copy my request</button>
           </form>
         </div>
       </div>
@@ -366,70 +344,119 @@
   <!-- FOOTER -->
   <footer class="border-t border-ibame-charcoal px-4 md:px-10 py-10 text-center space-y-4">
     <div class="flex flex-col items-center justify-center">
-      <img src="./FinalWhiteBgrd (1).png" alt="IBAME" class="h-10 md:h-12 logo-adapt opacity-80" />
+      <img src="/img/ibame-wordmark-white.webp" alt="IBAME" width="420" height="117" class="h-7 md:h-8 w-auto opacity-80" loading="lazy" decoding="async" />
       <p class="font-display italic text-lg text-ibame-copper mt-2">Essence</p>
     </div>
     <p class="text-ibame-grey text-[10px] md:text-xs uppercase tracking-[0.25em] mt-4">Montréal · BCA Inc.</p>
     <a href="mailto:Fortunatb@yahoo.fr" class="block text-ibame-grey text-[10px] md:text-xs uppercase tracking-[0.2em] hover:text-ibame-copper transition-colors">Fortunatb@yahoo.fr</a>
+    <a href="https://www.instagram.com/ibameofficial" target="_blank" rel="noopener" class="block text-ibame-grey text-[10px] md:text-xs uppercase tracking-[0.2em] hover:text-ibame-copper transition-colors">Instagram · @ibameofficial</a>
   </footer>
 
   <script>
     (() => {
       'use strict';
+      const EMAIL = 'Fortunatb@yahoo.fr';
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const $ = (sel) => document.querySelector(sel);
 
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
-      }, { threshold: 0.1 });
-      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      // Scroll reveal (CSS only hides .reveal while JS is running, so no-JS visitors still see everything)
+      const reveals = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window && !reduceMotion) {
+        const io = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) { entry.target.classList.add('active'); obs.unobserve(entry.target); }
+          });
+        }, { threshold: 0.1 });
+        reveals.forEach(el => io.observe(el));
+      } else {
+        reveals.forEach(el => el.classList.add('active'));
+      }
 
-      const form = document.getElementById('essence-form');
-      const status = document.getElementById('e-status');
+      // Request form: validate, then open the visitor's email app (with a copy fallback)
+      const form = $('#essence-form');
+      const status = $('#e-status');
+      const copyBtn = $('#e-copy');
+      const fields = [
+        { el: $('#e-name'),  err: $('#e-name-err'),  valid: v => v.length > 0, msg: 'Please add your name.' },
+        { el: $('#e-email'), err: $('#e-email-err'), valid: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), msg: 'Please enter a valid email address.' },
+        { el: $('#e-piece'), err: $('#e-piece-err'), valid: v => v.length > 0, msg: 'Tell us what you would like.' }
+      ];
+      const check = (f) => {
+        const ok = f.valid(f.el.value.trim());
+        f.el.setAttribute('aria-invalid', ok ? 'false' : 'true');
+        f.err.textContent = ok ? '' : f.msg;
+        f.err.classList.toggle('hidden', ok);
+        return ok;
+      };
+      fields.forEach(f => f.el?.addEventListener('input', () => {
+        if (f.el.getAttribute('aria-invalid') === 'true') check(f);
+      }));
       form?.addEventListener('submit', (e) => {
         e.preventDefault();
-        const name = document.getElementById('e-name').value.trim();
-        const email = document.getElementById('e-email').value.trim();
-        const piece = document.getElementById('e-piece').value.trim();
-        const subject = encodeURIComponent('Custom Request | IBAME Essence');
-        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nRequest Details:\n${piece}`);
-        window.location.href = `mailto:Fortunatb@yahoo.fr?subject=${subject}&body=${body}`;
+        const results = fields.map(check);
+        const bad = results.indexOf(false);
+        if (bad !== -1) { fields[bad].el.focus(); return; }
+        const [name, email, piece] = fields.map(f => f.el.value.trim());
+        const subject = 'Custom Request | IBAME Essence';
+        const body = `Name: ${name}\nEmail: ${email}\n\nRequest Details:\n${piece}`;
+        copyBtn.dataset.text = `To: ${EMAIL}\nSubject: ${subject}\n\n${body}`;
+        status.textContent = `Opening your email app… If nothing opens, copy your request and send it to ${EMAIL}.`;
         status.classList.remove('hidden');
-        status.textContent = 'Opening your secure email client...';
+        copyBtn.classList.remove('hidden');
+        window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      });
+      copyBtn?.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(copyBtn.dataset.text || '');
+          status.textContent = `Copied. Paste it into an email to ${EMAIL}.`;
+        } catch (_) {
+          status.textContent = `Couldn't copy automatically. Please write to ${EMAIL}.`;
+        }
       });
 
+      // Reserve / Inquire buttons pre-fill the request and jump to the form
       document.querySelectorAll('.reserve-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           const product = btn.getAttribute('data-product') || '';
-          const textarea = document.getElementById('e-piece');
+          const textarea = $('#e-piece');
           if (textarea) textarea.value = `I would like to reserve: ${product}`;
-          document.getElementById('custom')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          document.getElementById('e-name')?.focus();
+          $('#custom')?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+          $('#e-name')?.focus({ preventScroll: true });
         });
       });
 
-      const tiltCards = document.querySelectorAll('.tilt-card');
-      const isTouch = window.matchMedia('(pointer: coarse)').matches;
-      if (!isTouch) {
-        tiltCards.forEach(card => {
+      // Pointer-only polish (skipped on touch devices and for reduced-motion users)
+      if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        document.querySelectorAll('.tilt-card').forEach(card => {
+          let raf = 0;
           card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const rotateX = ((y - rect.height / 2) / rect.height) * -6;
-            const rotateY = ((x - rect.width / 2) / rect.width) * 6;
-            card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.01)`;
+            if (raf) return;
+            raf = requestAnimationFrame(() => {
+              raf = 0;
+              const r = card.getBoundingClientRect();
+              const rotateX = ((e.clientY - r.top - r.height / 2) / r.height) * -6;
+              const rotateY = ((e.clientX - r.left - r.width / 2) / r.width) * 6;
+              card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.01)`;
+            });
           });
           card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';
+            cancelAnimationFrame(raf); raf = 0;
+            card.style.transform = '';
           });
         });
 
-        const hero = document.getElementById('hero');
-        const glow = document.getElementById('cursor-glow');
+        const hero = $('#hero');
+        const glow = $('#cursor-glow');
+        let glowRaf = 0;
         hero?.addEventListener('mousemove', (e) => {
-          const rect = hero.getBoundingClientRect();
-          glow.style.left = `${e.clientX - rect.left}px`;
-          glow.style.top = `${e.clientY - rect.top}px`;
-          glow.style.opacity = '1';
+          if (glowRaf) return;
+          glowRaf = requestAnimationFrame(() => {
+            glowRaf = 0;
+            const r = hero.getBoundingClientRect();
+            glow.style.left = `${e.clientX - r.left}px`;
+            glow.style.top = `${e.clientY - r.top}px`;
+            glow.style.opacity = '1';
+          });
         });
         hero?.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
       }

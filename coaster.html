@@ -5,20 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IBAME Maison — Coaster Set | Tap the wood. Hear the maker.</title>
 <meta name="description" content="An IBAME Maison black-walnut coaster set. Tap the wood. Hear the maker.">
+<meta name="theme-color" content="#100b06">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://essence.ibame.ca/coaster">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="IBAME Maison">
 <meta property="og:title" content="IBAME Maison — Coaster Set">
 <meta property="og:description" content="Tap the wood. Hear the maker.">
-<meta property="og:image" content="coaster-honeycomb.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<meta property="og:url" content="https://essence.ibame.ca/coaster">
+<meta property="og:image" content="https://essence.ibame.ca/img/og-coaster.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="IBAME Maison black-walnut coaster set with honeycomb engraving on its holder">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Self-hosted fonts (no third-party font requests) -->
+<link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/playfair-display-latin-wght-italic.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  @font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/inter-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:"Playfair Display";font-style:normal;font-weight:400 900;font-display:swap;src:url(/assets/fonts/playfair-display-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:"Playfair Display";font-style:italic;font-weight:400 900;font-display:swap;src:url(/assets/fonts/playfair-display-latin-wght-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:"Inter Fallback";src:local("Arial");size-adjust:107.34%;ascent-override:90.25%;descent-override:22.47%;line-gap-override:0%}
+  @font-face{font-family:"Playfair Fallback";font-style:normal;src:local("Times New Roman");size-adjust:112.44%;ascent-override:96.23%;descent-override:22.32%;line-gap-override:0%}
+  @font-face{font-family:"Playfair Fallback";font-style:italic;src:local("Times New Roman Italic"),local("TimesNewRomanPS-ItalicMT");size-adjust:105.18%;ascent-override:102.87%;descent-override:23.86%;line-gap-override:0%}
   :root{
     --bg:#100b06; --bg2:#1a120a; --walnut:#3b2a18;
-    --cream:#f5ecdc; --muted:#c0a97f; --faint:#8a7454;
+    --cream:#f5ecdc; --muted:#c0a97f; --faint:#917c5b;
     --copper:#c9833e; --copper-deep:#9a5f24; --line:#2c2114;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  body{background:var(--bg);color:var(--cream);font-family:'Inter',system-ui,sans-serif;
+  body{background:var(--bg);color:var(--cream);font-family:'Inter','Inter Fallback',system-ui,sans-serif;
        -webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
 
   /* ---------- HERO ---------- */
@@ -34,7 +54,7 @@
        color:var(--copper);margin-bottom:18px;padding:8px 14px;
        border:1px solid rgba(201,131,62,.45);border-radius:999px;
        background:rgba(16,11,6,.55);backdrop-filter:blur(6px)}
-  .hero h1{font-family:'Playfair Display',serif;font-weight:700;
+  .hero h1{font-family:'Playfair Display','Playfair Fallback',Georgia,serif;font-weight:700;
        font-size:clamp(42px,11vw,64px);line-height:1.08;letter-spacing:-.01em;
        text-shadow:0 2px 30px rgba(0,0,0,.55)}
   .hero h1 em{font-style:italic;font-weight:500;color:var(--copper)}
@@ -56,7 +76,7 @@
        box-shadow:0 24px 60px rgba(0,0,0,.45)}
   .player .track{display:flex;align-items:baseline;justify-content:space-between;
        margin-bottom:14px}
-  .player .track b{font-family:'Playfair Display',serif;font-size:21px;font-weight:600}
+  .player .track b{font-family:'Playfair Display','Playfair Fallback',Georgia,serif;font-size:21px;font-weight:600}
   .player .track span{font-size:12px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
   .player iframe{width:100%;height:152px;border:0;border-radius:12px;display:block}
   .player .note{font-size:12.5px;color:var(--muted);margin-top:12px;text-align:center;font-style:italic}
@@ -65,7 +85,7 @@
        border-radius:18px;padding:30px 26px;position:relative;overflow:hidden}
   .card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
        background:linear-gradient(90deg,var(--copper-deep),var(--copper),var(--copper-deep))}
-  .bank{font-family:'Playfair Display',serif;font-size:20px;line-height:1.55;margin-bottom:18px}
+  .bank{font-family:'Playfair Display','Playfair Fallback',Georgia,serif;font-size:20px;line-height:1.55;margin-bottom:18px}
   .bank:last-of-type{margin-bottom:22px}
   .facts{border-top:1px solid var(--line);padding-top:20px;color:var(--muted);font-size:14px}
   .facts li{list-style:none;display:flex;gap:12px;padding:9px 0;border-bottom:1px solid rgba(44,33,20,.6)}
@@ -92,7 +112,11 @@
 <body>
 
 <header class="hero">
-  <img class="photo" src="coaster-honeycomb.jpg" alt="IBAME Maison black-walnut coaster set with honeycomb engraving">
+  <picture>
+    <source type="image/avif" srcset="/img/coaster-honeycomb-720.avif 720w, /img/coaster-honeycomb-1080.avif 1080w, /img/coaster-honeycomb-1440.avif 1440w" sizes="max(100vw, 92vh)">
+    <source type="image/webp" srcset="/img/coaster-honeycomb-720.webp 720w, /img/coaster-honeycomb-1080.webp 1080w, /img/coaster-honeycomb-1440.webp 1440w" sizes="max(100vw, 92vh)">
+    <img class="photo" src="/coaster-honeycomb.jpg" alt="IBAME Maison black-walnut coaster set with honeycomb engraving" width="1443" height="1442" fetchpriority="high" decoding="async">
+  </picture>
   <div class="shade"></div>
   <div class="inner">
     <span class="kicker">IBAME Maison · Black Walnut</span>

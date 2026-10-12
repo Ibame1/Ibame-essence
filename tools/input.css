@@ -1,0 +1,69 @@
+/* IBAME Essence — stylesheet source.
+   Build: bash tools/build.sh  ->  assets/site.css (minified, committed).
+   Replaces the Tailwind Play CDN script + the inline <style> that lived in index.html. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Fonts: self-hosted variable fonts (SIL OFL), Latin subset ---------- */
+@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;
+  src:url(/assets/fonts/inter-latin-wght-normal.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Playfair Display";font-style:normal;font-weight:400 900;font-display:swap;
+  src:url(/assets/fonts/playfair-display-latin-wght-normal.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Playfair Display";font-style:italic;font-weight:400 900;font-display:swap;
+  src:url(/assets/fonts/playfair-display-latin-wght-italic.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* Metric-matched fallbacks: text does not jump when the web fonts swap in (CLS). */
+@font-face{font-family:"Inter Fallback";src:local("Arial");size-adjust:107.34%;ascent-override:90.25%;descent-override:22.47%;line-gap-override:0%}
+@font-face{font-family:"Playfair Fallback";font-style:normal;src:local("Times New Roman");size-adjust:112.44%;ascent-override:96.23%;descent-override:22.32%;line-gap-override:0%}
+@font-face{font-family:"Playfair Fallback";font-style:italic;src:local("Times New Roman Italic"),local("TimesNewRomanPS-ItalicMT");size-adjust:105.18%;ascent-override:102.87%;descent-override:23.86%;line-gap-override:0%}
+
+/* ---------- Base ---------- */
+html{scroll-behavior:smooth;color-scheme:dark}
+body{background-color:#050505;color:#F5F5F0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+:focus-visible{outline:2px solid #B87333;outline-offset:3px}
+.carved-rule{height:1px;background:linear-gradient(90deg,transparent,#B87333 20%,#B87333 80%,transparent);opacity:.3}
+.grain-card{background-color:#0F0E13;border:1px solid rgba(184,115,51,.15)}
+
+/* ---------- Motion ---------- */
+/* Scroll-reveal only hides content when JS is running (the .js class is set in <head>). */
+.js .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.js .reveal.active{opacity:1;transform:translateY(0)}
+/* Hero entrance is transform-only so the LCP image/text is never hidden at first paint. */
+.hero-rise{animation:heroRise .9s cubic-bezier(.22,1,.36,1) both}
+@keyframes heroRise{from{transform:translateY(16px)}to{transform:none}}
+
+.product-img{transition:transform .6s ease;filter:grayscale(15%) contrast(110%)}
+@media (hover:hover){.group:hover .product-img{transform:scale(1.05)}}
+
+.tilt-card{transition:transform .15s ease-out,box-shadow .3s ease,opacity .6s ease}
+.tilt-card:hover{box-shadow:0 20px 40px -12px rgba(184,115,51,.25)}
+
+.marquee-track{display:flex;width:max-content;animation:marquee 28s linear infinite}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.marquee-wrap:hover .marquee-track{animation-play-state:paused}
+
+/* "New" badge ring: transform/opacity only (compositor-friendly; the old box-shadow pulse repainted every frame). */
+.badge-new::after{content:"";position:absolute;inset:0;border-radius:inherit;border:1px solid rgba(184,115,51,.6);pointer-events:none;animation:badgeRing 2.2s ease-out infinite}
+@keyframes badgeRing{0%{transform:scale(1);opacity:.85}70%,100%{transform:scale(1.3,1.55);opacity:0}}
+
+#cursor-glow{position:absolute;width:420px;height:420px;background:radial-gradient(circle,rgba(184,115,51,.14),transparent 70%);border-radius:9999px;pointer-events:none;transform:translate(-50%,-50%);transition:opacity .3s ease;opacity:0;z-index:0}
+
+.price-tag{font-family:"Playfair Display","Playfair Fallback",Georgia,serif;font-style:italic}
+
+/* Designed placeholder for products whose photo is not in the repo yet (no broken-image icons). */
+.photo-pending{position:relative;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(120% 90% at 28% 18%,rgba(184,115,51,.16),transparent 60%),linear-gradient(135deg,#1a120a,#0F0E13);
+  color:#8A8A8A;font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;text-align:center}
+.photo-pending::before{content:"";position:absolute;inset:12px;border:1px solid rgba(184,115,51,.25);border-radius:.75rem}
+.photo-pending.tile::before{inset:8px;border-radius:.5rem}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .reveal{opacity:1;transform:none;transition:none}
+  .hero-rise,.marquee-track,.badge-new::after{animation:none}
+  .badge-new::after{display:none}
+  .tilt-card,.product-img{transition:none}
+}
