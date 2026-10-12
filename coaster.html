@@ -5,51 +5,109 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IBAME Maison — Coaster Set | Tap the wood. Hear the maker.</title>
 <meta name="description" content="An IBAME Maison black-walnut coaster set. Tap the wood. Hear the maker.">
+<meta property="og:title" content="IBAME Maison — Coaster Set">
+<meta property="og:description" content="Tap the wood. Hear the maker.">
+<meta property="og:image" content="coaster-honeycomb.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#141009; --bg2:#1d150c; --walnut:#3b2a18;
-    --cream:#f2e9d8; --muted:#b8a687; --copper:#b87333; --line:#2e2317;
+    --bg:#100b06; --bg2:#1a120a; --walnut:#3b2a18;
+    --cream:#f5ecdc; --muted:#c0a97f; --faint:#8a7454;
+    --copper:#c9833e; --copper-deep:#9a5f24; --line:#2c2114;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   body{background:var(--bg);color:var(--cream);font-family:'Inter',system-ui,sans-serif;
-       -webkit-font-smoothing:antialiased;line-height:1.6}
-  .wrap{max-width:560px;margin:0 auto;padding:48px 24px 64px}
-  .kicker{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--copper);
-          margin-bottom:16px}
-  h1{font-family:'Playfair Display',serif;font-weight:600;font-size:34px;line-height:1.25;
-     margin-bottom:8px}
-  .sub{color:var(--muted);font-size:15px;margin-bottom:32px}
-  .player{margin:0 0 40px}
-  .player iframe{width:100%;height:152px;border:0;border-radius:12px}
-  .player .note{font-size:12px;color:var(--muted);margin-top:8px;text-align:center}
-  .card{background:var(--bg2);border:1px solid var(--line);border-radius:14px;
-        padding:28px 24px;margin-bottom:24px}
-  .card p{margin-bottom:14px}
-  .card p:last-child{margin-bottom:0}
-  .bank{font-family:'Playfair Display',serif;font-size:19px;line-height:1.5}
-  .facts{color:var(--muted);font-size:14px}
-  .auth{border-top:1px solid var(--line);padding-top:24px;margin-top:8px;
-        font-size:14px;color:var(--muted)}
-  .cta{display:block;text-align:center;margin-top:32px;padding:16px 24px;
-       border:1px solid var(--copper);border-radius:999px;color:var(--cream);
-       text-decoration:none;font-size:15px;font-weight:500;letter-spacing:.04em}
-  .cta:active{background:var(--copper);color:var(--bg)}
-  footer{margin-top:48px;text-align:center;color:var(--muted);font-size:12px;letter-spacing:.18em}
+       -webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;min-height:92svh;display:flex;align-items:flex-end;overflow:hidden}
+  .hero img.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+       object-position:center 30%}
+  .hero .shade{position:absolute;inset:0;
+       background:linear-gradient(180deg,rgba(16,11,6,.25) 0%,rgba(16,11,6,.05) 35%,
+                  rgba(16,11,6,.55) 68%,rgba(16,11,6,.96) 100%)}
+  .hero .inner{position:relative;width:100%;max-width:600px;margin:0 auto;
+       padding:0 28px 56px}
+  .kicker{display:inline-block;font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+       color:var(--copper);margin-bottom:18px;padding:8px 14px;
+       border:1px solid rgba(201,131,62,.45);border-radius:999px;
+       background:rgba(16,11,6,.55);backdrop-filter:blur(6px)}
+  .hero h1{font-family:'Playfair Display',serif;font-weight:700;
+       font-size:clamp(42px,11vw,64px);line-height:1.08;letter-spacing:-.01em;
+       text-shadow:0 2px 30px rgba(0,0,0,.55)}
+  .hero h1 em{font-style:italic;font-weight:500;color:var(--copper)}
+  .hero .sub{margin-top:14px;color:var(--cream);opacity:.85;font-size:15px;max-width:34ch}
+
+  /* ---------- BODY ---------- */
+  .wrap{max-width:600px;margin:0 auto;padding:8px 24px 72px}
+
+  .now{display:flex;align-items:center;gap:10px;margin:36px 0 14px;
+       font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--copper)}
+  .now::after{content:"";flex:1;height:1px;background:var(--line)}
+  .pulse{width:8px;height:8px;border-radius:50%;background:var(--copper);
+       box-shadow:0 0 0 0 rgba(201,131,62,.6);animation:pulse 2.2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(201,131,62,.55)}
+       70%{box-shadow:0 0 0 10px rgba(201,131,62,0)}100%{box-shadow:0 0 0 0 rgba(201,131,62,0)}}
+
+  .player{background:linear-gradient(160deg,#20150b,#141009);
+       border:1px solid var(--line);border-radius:18px;padding:22px;
+       box-shadow:0 24px 60px rgba(0,0,0,.45)}
+  .player .track{display:flex;align-items:baseline;justify-content:space-between;
+       margin-bottom:14px}
+  .player .track b{font-family:'Playfair Display',serif;font-size:21px;font-weight:600}
+  .player .track span{font-size:12px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
+  .player iframe{width:100%;height:152px;border:0;border-radius:12px;display:block}
+  .player .note{font-size:12.5px;color:var(--muted);margin-top:12px;text-align:center;font-style:italic}
+
+  .card{margin-top:28px;background:var(--bg2);border:1px solid var(--line);
+       border-radius:18px;padding:30px 26px;position:relative;overflow:hidden}
+  .card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
+       background:linear-gradient(90deg,var(--copper-deep),var(--copper),var(--copper-deep))}
+  .bank{font-family:'Playfair Display',serif;font-size:20px;line-height:1.55;margin-bottom:18px}
+  .bank:last-of-type{margin-bottom:22px}
+  .facts{border-top:1px solid var(--line);padding-top:20px;color:var(--muted);font-size:14px}
+  .facts li{list-style:none;display:flex;gap:12px;padding:9px 0;border-bottom:1px solid rgba(44,33,20,.6)}
+  .facts li:last-child{border-bottom:0}
+  .facts li i{font-style:normal;color:var(--copper);min-width:86px;font-size:11px;
+       letter-spacing:.18em;text-transform:uppercase;padding-top:3px}
+
+  .auth{margin-top:28px;padding:24px 26px;border:1px dashed rgba(201,131,62,.4);
+       border-radius:18px;font-size:14px;color:var(--muted);text-align:center}
+  .auth b{color:var(--cream);font-weight:600}
+
+  .cta{display:block;text-align:center;margin-top:30px;padding:18px 24px;border-radius:999px;
+       background:linear-gradient(135deg,var(--copper),var(--copper-deep));
+       color:#181005;text-decoration:none;font-size:15px;font-weight:600;letter-spacing:.05em;
+       box-shadow:0 12px 32px rgba(201,131,62,.28)}
+  .cta:active{transform:scale(.98)}
+  .cta small{display:block;font-weight:500;font-size:12px;opacity:.75;margin-top:2px}
+
+  footer{margin-top:56px;text-align:center;color:var(--faint);font-size:11px;
+       letter-spacing:.3em;text-transform:uppercase}
+  footer a{color:var(--muted);text-decoration:none}
 </style>
 </head>
 <body>
+
+<header class="hero">
+  <img class="photo" src="coaster-honeycomb.jpg" alt="IBAME Maison black-walnut coaster set with honeycomb engraving">
+  <div class="shade"></div>
+  <div class="inner">
+    <span class="kicker">IBAME Maison · Black Walnut</span>
+    <h1>Tap the wood.<br><em>Hear the maker.</em></h1>
+    <p class="sub">This page is the digital home of your coaster set — it follows the object wherever it goes.</p>
+  </div>
+</header>
+
 <main class="wrap">
 
-  <p class="kicker">IBAME Maison · Black Walnut</p>
-  <h1>Tap the wood.<br>Hear the maker.</h1>
-  <p class="sub">This page is the digital home of your coaster set.</p>
-
+  <div class="now"><span class="pulse"></span>Now playing · Fortunat Bola</div>
   <section class="player">
+    <div class="track"><b>&ldquo;I&rsquo;m Gone&rdquo;</b><span>The maker&rsquo;s track</span></div>
     <!-- Spotify track ID for "I'm Gone" by Fortunat Bola, verified live 2026-10-07:
-         https://open.spotify.com/track/75pNK2pgcrfdPDQ4l5t5cc (12,364 plays) -->
+         https://open.spotify.com/track/75pNK2pgcrfdPDQ4l5t5cc -->
     <iframe title="Fortunat Bola — I'm Gone"
             src="https://open.spotify.com/embed/track/75pNK2pgcrfdPDQ4l5t5cc?utm_source=generator"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -58,22 +116,23 @@
   </section>
 
   <section class="card">
-    <p class="bank">Black Walnut. African Blackwood. Copper.<br>
-       The IBAME material language.</p>
-    <p class="bank">Built in Montréal.<br>
-       Rooted beyond it.</p>
-    <p class="facts">Four black-walnut coasters on a fitted base — 10&nbsp;&times;&nbsp;10&nbsp;&times;&nbsp;0.6&nbsp;cm,
-       honeycomb engraving, hand-finished by Fortunat Bola.</p>
+    <p class="bank">Black Walnut. African Blackwood. Copper.<br>The IBAME material language.</p>
+    <p class="bank">Built in Montr&eacute;al.<br>Rooted beyond it.</p>
+    <ul class="facts">
+      <li><i>Set</i><span>Four black-walnut coasters on a fitted base</span></li>
+      <li><i>Size</i><span>10 &times; 10 &times; 0.6 cm each</span></li>
+      <li><i>Detail</i><span>Honeycomb engraving, hand-finished by Fortunat Bola</span></li>
+      <li><i>Inside</i><span>An NFC signature sealed under the base — tap it anytime</span></li>
+    </ul>
   </section>
 
-  <p class="auth">Each set carries an NFC signature under its base.
-     Tap it anytime — this page follows the object wherever it goes.</p>
+  <p class="auth">Each set carries an <b>NFC signature</b> under its base.<br>Tap it anytime — this page is yours.</p>
 
   <a class="cta" href="https://www.instagram.com/ibameofficial" target="_blank" rel="noopener">
-    Follow @ibameofficial
+    Follow @ibameofficial<small>Objects with a soul · IBAME Maison</small>
   </a>
 
-  <footer>IBAME MAISON</footer>
+  <footer><a href="https://essence.ibame.ca">essence.ibame.ca</a> · IBAME Maison</footer>
 </main>
 </body>
 </html>
